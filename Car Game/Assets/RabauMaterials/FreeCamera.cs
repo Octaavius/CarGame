@@ -7,6 +7,9 @@ public class FreeCamera : MonoBehaviour
 {
 
     public Transform target;
+
+    public GameObject cameraCar;
+
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
@@ -45,15 +48,14 @@ public class FreeCamera : MonoBehaviour
 
         if(Input.GetKeyDown("r")){
             reset = reset? false : true;
-        }
-        else if(reset){
-            Quaternion rotation = target.rotation;
-            transform.rotation = rotation;
-
-            Vector3 negDistance = new Vector3(0f, 2f, -distance);
-            Vector3 position = rotation * negDistance + target.position;
-
-            transform.position = position;
+            if(!reset){
+                cameraCar.SetActive(false);
+                GetComponent<Camera>().enabled = true;
+            }
+            else{
+                GetComponent<Camera>().enabled = false;
+                cameraCar.SetActive(true);
+            }
         }
         
         if(target && !reset){

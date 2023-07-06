@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarScript : MonoBehaviour
 {
-    public float maxAngel;
+    public float maxAngle;
 
     public float motorForce;
 
@@ -63,7 +63,7 @@ public class CarScript : MonoBehaviour
     }
 
     void TurnUpdate(){
-        float curAngle = horizontalInput * maxAngel;
+        float curAngle = horizontalInput * maxAngle;
         FRWheel.steerAngle = curAngle;
         FLWheel.steerAngle = curAngle;
     }

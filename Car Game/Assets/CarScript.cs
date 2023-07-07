@@ -84,14 +84,13 @@ public class CarScript : MonoBehaviour
 
     void EngineUpdate(){
         float curMotorForce;
-        float curBrakeForce;
         curMotorForce = verticalInput * motorForce;   
 
         if(gear == 0){
             curMotorForce = -verticalInput * motorForce;
         } 
 
-        if((gear > 0 && curMotorForce > 0) || (gear == 0 && curMotorForce < 0)){
+        if((gear > 0 && curMotorForce >= 0) || (gear == 0 && curMotorForce <= 0)){
             switch(transmission)
             {
                 case TransmissionTypes.FW:

@@ -1,19 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CarScript : MonoBehaviour
 {
     public float maxAngle;
 
+    public enum TransmissionTypes
+    {
+        FW, RW, AW
+    }
+
+    public TransmissionTypes transmission;
+
     public float motorForce;
 
     public float brakeForce;
+
+    public float HandBrakeForce;
     public float siski_skin_pls;
+
+    public int maxGearNum = 6;
     
     private bool brakeInput;
     private float verticalInput;
     private float horizontalInput;
+    private int gearInput;
+
+    private Rigidbody rb;
 
     public WheelCollider FLWheel;
     public WheelCollider FRWheel;
@@ -24,10 +39,11 @@ public class CarScript : MonoBehaviour
     public GameObject FRWheelMesh;
     public GameObject RLWheelMesh;
     public GameObject RRWheelMesh;
-    
+
+    public int gear = 1;
 
     void Start(){
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
     }
 
@@ -36,21 +52,18 @@ public class CarScript : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         brakeInput = Input.GetKey(KeyCode.Space);
-        wheelUpdate();
+        gearInput = Input.GetKeyDown("e")? 1 : (Input.GetKeyDown("q")? -1 : 0);
+
         TurnUpdate();
+        GearUpdate();
         EngineUpdate();
-        if(brakeInput){
-            BrakeUpdate();
-        }
+        HandBrakeUpdate();  
     }
 
     void wheelUpdate(){
         singleWheelUpdate(FLWheel, FLWheelMesh);
-        
         singleWheelUpdate(FRWheel, FRWheelMesh);
-        
         singleWheelUpdate(RLWheel, RLWheelMesh);
-    
         singleWheelUpdate(RRWheel, RRWheelMesh);
     }
 
@@ -69,15 +82,68 @@ public class CarScript : MonoBehaviour
     }
 
     void EngineUpdate(){
-        float curMotorForce = verticalInput * motorForce;
-        FRWheel.motorTorque = curMotorForce;
-        FLWheel.motorTorque = curMotorForce;
+        float curMotorForce;
+        curMotorForce = verticalInput * motorForce;   
+
+        if(gear == 0){
+            curMotorForce = -verticalInput * motorForce;
+        } 
+
+        if((gear > 0 && curMotorForce >= 0) || (gear == 0 && curMotorForce <= 0)){
+            switch(transmission)
+            {
+                case TransmissionTypes.FW:
+                    FRWheel.motorTorque = curMotorForce;
+                    FLWheel.motorTorque = curMotorForce;
+                    break;
+
+                case TransmissionTypes.RW:
+                    RRWheel.motorTorque = curMotorForce;
+                    RLWheel.motorTorque = curMotorForce;
+                    break;
+                
+                case TransmissionTypes.AW:
+                    FRWheel.motorTorque = curMotorForce;
+                    FLWheel.motorTorque = curMotorForce;
+                    RRWheel.motorTorque = curMotorForce;
+                    RLWheel.motorTorque = curMotorForce;
+                    break;
+            }  
+            BrakeUpdate(false);
+        }
+        else{
+            BrakeUpdate(true);
+        }
+
+        wheelUpdate();
     }
 
-    void BrakeUpdate(){
-        FRWheel.brakeTorque = brakeForce;
-        FLWheel.brakeTorque = brakeForce;
-        RLWheel.brakeTorque = brakeForce;
-        RRWheel.brakeTorque = brakeForce;
+    void BrakeUpdate(bool stop){
+        if(stop){
+            RLWheel.brakeTorque = brakeForce;
+            RRWheel.brakeTorque = brakeForce;
+            FLWheel.brakeTorque = brakeForce;
+            FRWheel.brakeTorque = brakeForce;
+        }
+        else{
+            RLWheel.brakeTorque = 0;
+            RRWheel.brakeTorque = 0;
+            FLWheel.brakeTorque = 0;
+            FRWheel.brakeTorque = 0;
+        }
+        
+    }
+
+    void HandBrakeUpdate(){
+        if(brakeInput){
+            RLWheel.brakeTorque = HandBrakeForce;
+            RRWheel.brakeTorque = HandBrakeForce;
+        }
+    }
+
+    void GearUpdate(){
+        if((gearInput != 0 && gear > 0 && gear < maxGearNum) || (gear == 0 && gearInput > 0) || (gear == maxGearNum && gearInput < 0)){
+            gear += gearInput;
+        } 
     }
 }

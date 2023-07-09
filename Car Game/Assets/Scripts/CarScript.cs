@@ -18,7 +18,6 @@ public class CarScript : MonoBehaviour
         FW, RW, AW
     }
 
-
     public TransmissionTypes transmission;
 
     public float brakeForce;
@@ -26,10 +25,10 @@ public class CarScript : MonoBehaviour
     public float HandBrakeForce;
     public float siski_skin_pls;
 
-    public int maxGearNum = 6;
+    public static int maxGearNum = 6;
     
-    private float verticalInput;
-    private float horizontalInput;
+    private static float verticalInput;
+    private static float horizontalInput;
     private int gearInput;
 
     private Rigidbody rb;
@@ -38,7 +37,7 @@ public class CarScript : MonoBehaviour
     
     public GameObject[] wheelMeshes = new GameObject[4];
 
-    public int gear = 1;
+    public static int gear = 1;
 
     void Start(){
         wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -57,8 +56,8 @@ public class CarScript : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        verticalInput = Input.GetAxis("Vertical");
-        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = SimpleInput.GetAxis("Vertical");
+        horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         
         TurnUpdate();
         if(verticalInput < 0)
@@ -176,4 +175,16 @@ public class CarScript : MonoBehaviour
     public float getEngineRpm(){
         return engineRpm;
     } 
+
+    public static void GearDown(){
+        if(gear - 1 != -1){
+            gear--;
+        }
+    }
+
+    public static void GearUp(){
+        if(gear + 1 != maxGearNum){
+            gear++;
+        }
+    }
 }

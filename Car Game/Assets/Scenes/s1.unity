@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,6 +131,78 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].time
+      value: 3017.4695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].time
+      value: 4849.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[3].time
+      value: 6017.442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].value
+      value: 692.12103
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].value
+      value: 1284.639
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[3].value
+      value: 515.6211
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].inSlope
+      value: 0.25892696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].inSlope
+      value: 0.024986338
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[3].inSlope
+      value: -2.3045213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].inWeight
+      value: 0.09735977
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].outSlope
+      value: 0.25892696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].outSlope
+      value: 0.024986338
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[3].inWeight
+      value: 0.0426652
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[3].outSlope
+      value: -2.3045213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[1].outWeight
+      value: 0.1201963
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: enginePower.m_Curve.Array.data[2].outWeight
+      value: 0.30069795
+      objectReference: {fileID: 0}
     - target: {fileID: 7115878310629961273, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -878,7 +950,7 @@ GameObject:
   - component: {fileID: 797094121}
   - component: {fileID: 797094120}
   m_Layer: 0
-  m_Name: Text (Legacy)
+  m_Name: ReverseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,7 +1009,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GearDown
+  m_Text: Reverse
 --- !u!222 &797094121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -963,7 +1035,7 @@ GameObject:
   - component: {fileID: 900257343}
   - component: {fileID: 900257342}
   m_Layer: 0
-  m_Name: Text (Legacy)
+  m_Name: DriveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,7 +1094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GearUp
+  m_Text: Drive
 --- !u!222 &900257343
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1044,7 +1116,7 @@ GameObject:
   - component: {fileID: 922638226}
   - component: {fileID: 922638225}
   m_Layer: 0
-  m_Name: Button (Legacy)
+  m_Name: DriveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1162,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1101,7 +1173,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 239920970, guid: 0e9c22c82a248614b8c81b1a94d9e655, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1117,7 +1189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1873287874}
         m_TargetAssemblyTypeName: CarScript, Assembly-CSharp
-        m_MethodName: GearUp
+        m_MethodName: TurnDrive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1147,8 +1219,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1160551905, guid: 0e9c22c82a248614b8c81b1a94d9e655, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1509,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1659938791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,7 +1690,7 @@ GameObject:
   - component: {fileID: 1802463078}
   - component: {fileID: 1802463077}
   m_Layer: 0
-  m_Name: Button (Legacy) (1)
+  m_Name: ReverseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1763,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1873287874}
         m_TargetAssemblyTypeName: CarScript, Assembly-CSharp
-        m_MethodName: GearDown
+        m_MethodName: TurnReverse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,8 +1793,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1160551905, guid: 0e9c22c82a248614b8c81b1a94d9e655, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

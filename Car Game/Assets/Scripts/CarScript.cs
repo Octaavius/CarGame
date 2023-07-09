@@ -95,22 +95,21 @@ public class CarScript : MonoBehaviour
 
     void EngineUpdate(){
         if(Input.GetKeyDown("e") && gear == 0){
-            gear = 1;
+            TurnDrive();
         } else if (Input.GetKeyDown("q")){
-            gear = 0;
+            TurnReverse();
         }
 
-        if(verticalInput < 0) return;
-
-        float curMotorTorque;
         float gearRatio = gearRatioArray[gear];
-
+        
         engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
 
-        curMotorTorque = verticalInput * enginePower.Evaluate(engineRpm) * gearRatio / 5;
+        if(verticalInput < 0) return;
+
+        float curMotorTorque = verticalInput * enginePower.Evaluate(engineRpm) * gearRatio / 5;;
         
         if(gear == 0){
             curMotorTorque *= -1;
@@ -176,15 +175,11 @@ public class CarScript : MonoBehaviour
         return engineRpm;
     } 
 
-    public static void GearDown(){
-        if(gear - 1 != -1){
-            gear--;
-        }
+    public void TurnReverse(){
+        gear = 0;
     }
 
-    public static void GearUp(){
-        if(gear + 1 != maxGearNum){
-            gear++;
-        }
+    public void TurnDrive(){
+        gear = 1;
     }
 }

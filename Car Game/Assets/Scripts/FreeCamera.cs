@@ -20,7 +20,7 @@ public class FreeCamera : MonoBehaviour
     public float distanceMin = .5f;
     public float distanceMax = 15f;
 
-    private bool reset = false;
+    private bool fix = true;
 
     private Rigidbody rigidBody;
 
@@ -35,6 +35,9 @@ public class FreeCamera : MonoBehaviour
         y = angles.y;
 
         rigidBody = GetComponent<Rigidbody>();
+        
+        GetComponent<Camera>().enabled = false;
+        cameraCar.SetActive(true);
 
         if(rigidBody != null){
             rigidBody.freezeRotation = true;
@@ -47,8 +50,8 @@ public class FreeCamera : MonoBehaviour
         float deltaY = Input.GetAxis("Mouse Y");
 
         if(Input.GetKeyDown("r")){
-            reset = reset? false : true;
-            if(!reset){
+            fix = fix ? false : true;
+            if(!fix){
                 cameraCar.SetActive(false);
                 GetComponent<Camera>().enabled = true;
             }
@@ -58,7 +61,7 @@ public class FreeCamera : MonoBehaviour
             }
         }
         
-        if(target && !reset){
+        if(target && !fix){
             x += deltaX * xSpeed * distance * 0.02f;
             y-= deltaY * ySpeed * 0.02f;
 
@@ -78,13 +81,13 @@ public class FreeCamera : MonoBehaviour
 
     }
 
-    public static float ClampAngle(float angel, float min, float max){
-        if(angel < -360F) {
-            angel += 360F;
+    public static float ClampAngle(float angle, float min, float max){
+        if(angle < -360F) {
+            angle += 360F;
         }
-        if (angel > 360F){
-            angel -= 360F;
+        if (angle > 360F){
+            angle -= 360F;
         }
-        return Mathf.Clamp(angel, min, max);
+        return Mathf.Clamp(angle, min, max);
     } 
 }

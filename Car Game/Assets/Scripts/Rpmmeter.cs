@@ -9,12 +9,13 @@ public class Rpmmeter : MonoBehaviour
     
     private Transform needleTransform;
     public GameObject car;
+    private Animator animator;
 
     private float rpmMax;
 
     private void Awake(){
         needleTransform = transform.Find("needle");
-
+        animator = needleTransform.GetComponent<Animator>();
         rpmMax = 6000f;
     }
 
@@ -25,7 +26,9 @@ public class Rpmmeter : MonoBehaviour
     private float GetRpmRotation(){
         float totalAngleSize = ZERO_RPM_ANGLE - MAX_RPM_ANGLE;
 
-        float rpmNormalized = car.GetComponent<CarScript>().getEngineRpm() / rpmMax;
+        CarScript carScript = car.GetComponent<CarScript>();
+
+        float rpmNormalized = carScript.getEngineRpm() / rpmMax;
         return ZERO_RPM_ANGLE - rpmNormalized * totalAngleSize;
     }
 }

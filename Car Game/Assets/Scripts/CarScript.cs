@@ -8,7 +8,7 @@ public class CarScript : MonoBehaviour
     private float[] gearRatioArray = {2.9f, 2.66f, 1.78f, 1.3f, 1f, .74f, .5f}; //first ratio is for reverse gear
     [SerializeField] AnimationCurve enginePower;
 
-    private float engineRpm = 1000f; 
+    private float engineRpm = 1000f;
     const float multiplier = 60f / (2f * 3.1415926535897931f);
 
     public float maxAngle;
@@ -141,7 +141,7 @@ public class CarScript : MonoBehaviour
     void checkGear(){
         if(engineRpm > 5000f && gear != 6){
             gear++;
-        } else if(engineRpm < 3000f && gear != 1 && gear != 0){
+        } else if(engineRpm < 2000f && gear != 1 && gear != 0){
             gear--;
         }
     }
@@ -169,5 +169,7 @@ public class CarScript : MonoBehaviour
         }
     }
 
-
+    public float getEngineRpm(){
+        return engineRpm;
+    } 
 }

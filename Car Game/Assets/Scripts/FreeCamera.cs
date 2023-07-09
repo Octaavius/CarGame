@@ -90,4 +90,16 @@ public class FreeCamera : MonoBehaviour
         }
         return Mathf.Clamp(angle, min, max);
     } 
+
+    public void changeCamera(){
+        fix = (fix)? false : true;
+        if(!fix){
+            cameraCar.SetActive(false);
+            GetComponent<Camera>().enabled = true;
+        }
+        else{
+            GetComponent<Camera>().enabled = false;
+            cameraCar.SetActive(true);
+        }
+    }
 }

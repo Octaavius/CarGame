@@ -28,30 +28,28 @@ public class CarScript : MonoBehaviour
 
     public int maxGearNum = 6;
     
-    private bool brakeInput;
     private float verticalInput;
     private float horizontalInput;
     private int gearInput;
 
     private Rigidbody rb;
 
-    public WheelCollider FLWheel;
-    public WheelCollider FRWheel;
-    public WheelCollider RLWheel;
-    public WheelCollider RRWheel;
-
-    public GameObject FLWheelMesh;
-    public GameObject FRWheelMesh;
-    public GameObject RLWheelMesh;
-    public GameObject RRWheelMesh;
+    public WheelCollider[] wheels = new WheelCollider[4];
+    
+    public GameObject[] wheelMeshes = new GameObject[4];
 
     public int gear = 1;
 
     void Start(){
-        //WheelCollider FLWheel1 = GameObject.Find("FL").GetComponent<WheelCollider>();
-        // FRWheel = GameObject.Find("FR").GetComponent<WheelCollider>();
-        // RLWheel = GameObject.Find("RL").GetComponent<WheelCollider>();
-        // RRWheel = GameObject.Find("RR").GetComponent<WheelCollider>();
+        wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
+        wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
+        wheels[2] = GameObject.Find("RL").GetComponent<WheelCollider>();
+        wheels[3] = GameObject.Find("RR").GetComponent<WheelCollider>();
+        
+        wheelMeshes[0] = GameObject.Find("FL/wheel");
+        wheelMeshes[1] = GameObject.Find("FR/wheel");
+        wheelMeshes[2] = GameObject.Find("RL/wheel");
+        wheelMeshes[3] = GameObject.Find("RR/wheel");
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
@@ -61,20 +59,24 @@ public class CarScript : MonoBehaviour
     void Update(){
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
-        brakeInput = Input.GetKey(KeyCode.Space);
         
-
         TurnUpdate();
-        BrakeUpdate(verticalInput < 0);
+        if(verticalInput < 0)
+            BrakeUpdate();
+        else {
+            for(int i = 0; i < 2; ++i){
+                wheels[i].brakeTorque = 0;
+            }
+        }
         EngineUpdate();
+        wheelUpdate();
         HandBrakeUpdate();  
     }
 
     void wheelUpdate(){
-        singleWheelUpdate(FLWheel, FLWheelMesh);
-        singleWheelUpdate(FRWheel, FRWheelMesh);
-        singleWheelUpdate(RLWheel, RLWheelMesh);
-        singleWheelUpdate(RRWheel, RRWheelMesh);
+        for(int i = 0; i < 4; ++i){
+            singleWheelUpdate(wheels[i], wheelMeshes[i]);
+        }
     }
 
     void singleWheelUpdate(WheelCollider collider, GameObject wheel){
@@ -87,20 +89,24 @@ public class CarScript : MonoBehaviour
 
     void TurnUpdate(){
         float curAngle = horizontalInput * maxAngle;
-        FRWheel.steerAngle = curAngle;
-        FLWheel.steerAngle = curAngle;
+        for(int i = 0; i < 2; ++i){
+            wheels[i].steerAngle = curAngle;
+        }
     }
 
     void EngineUpdate(){
-        float curMotorTorque;
-        float gearRatio = gearRatioArray[gear];
         if(Input.GetKeyDown("e") && gear == 0){
             gear = 1;
         } else if (Input.GetKeyDown("q")){
             gear = 0;
         }
 
-        engineRpm = FLWheel.rpm * gearRatio * multiplier * 0.342f * 0.7f;
+        if(verticalInput < 0) return;
+
+        float curMotorTorque;
+        float gearRatio = gearRatioArray[gear];
+
+        engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
@@ -114,28 +120,27 @@ public class CarScript : MonoBehaviour
         switch(transmission)
         {
             case TransmissionTypes.FW:
-                FRWheel.motorTorque = curMotorTorque / 2;
-                FLWheel.motorTorque = curMotorTorque / 2;
+                for(int i = 0; i < 2; ++i){
+                    wheels[i].motorTorque = curMotorTorque / 2;
+                }
                 break;
 
             case TransmissionTypes.RW:
-                RRWheel.motorTorque = curMotorTorque / 2;
-                RLWheel.motorTorque = curMotorTorque / 2;
+                for(int i = 2; i < 4; ++i){
+                    wheels[i].motorTorque = curMotorTorque / 2;
+                }
                 break;
             
             case TransmissionTypes.AW:
-                FRWheel.motorTorque = curMotorTorque / 4;
-                FLWheel.motorTorque = curMotorTorque / 4;
-                RRWheel.motorTorque = curMotorTorque / 4;
-                RLWheel.motorTorque = curMotorTorque / 4;
+                for(int i = 0; i < 4; ++i){
+                    wheels[i].motorTorque = curMotorTorque / 4;
+                }
                 break;
         }  
-        // Debug.Log(engineRpm);
-        // Debug.Log(gear);
         checkGear();
         //check if we need to shift a gear
 
-        wheelUpdate();
+        
     }
 
     void checkGear(){
@@ -143,29 +148,28 @@ public class CarScript : MonoBehaviour
             gear++;
         } else if(engineRpm < 2000f && gear != 1 && gear != 0){
             gear--;
+        } else if(engineRpm > 6000f && gear == 6){
+            engineRpm = 6000f;
         }
     }
 
-    void BrakeUpdate(bool stop){
-        if(stop){
-            RLWheel.brakeTorque = brakeForce;
-            RRWheel.brakeTorque = brakeForce;
-            FLWheel.brakeTorque = brakeForce;
-            FRWheel.brakeTorque = brakeForce;
+    void BrakeUpdate(){
+        for(int i = 0; i < 4; ++i){
+            wheels[i].brakeTorque = brakeForce;
         }
-        else{
-            RLWheel.brakeTorque = 0;
-            RRWheel.brakeTorque = 0;
-            FLWheel.brakeTorque = 0;
-            FRWheel.brakeTorque = 0;
-        }
-        
     }
 
     void HandBrakeUpdate(){
+        bool brakeInput = Input.GetKey(KeyCode.Space);
+
         if(brakeInput){
-            RLWheel.brakeTorque = HandBrakeForce;
-            RRWheel.brakeTorque = HandBrakeForce;
+            for(int i = 2; i < 4; ++i){
+                wheels[i].brakeTorque = HandBrakeForce;
+            }    
+        } else {
+            for(int i = 2; i < 4; ++i){
+                wheels[i].brakeTorque = 0;
+            }
         }
     }
 

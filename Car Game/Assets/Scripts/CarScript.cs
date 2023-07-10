@@ -6,11 +6,8 @@ using System;
 public class CarScript : MonoBehaviour
 {
     private float[] gearRatioArray = {2.9f, 2.66f, 1.78f, 1.3f, 1f, .74f, .5f}; //first ratio is for reverse gear
-    [SerializeField] AnimationCurve engineRpmToTorque;
+    [SerializeField] AnimationCurve engineRpmToTorque;  
 
-    private float enginePower = 1000f;    
-
-    private float maxEngineRpm = 1000f;
     private float engineRpm = 1000f;
     const float multiplier = 60f / (2f * 3.1415926535897931f);
 
@@ -23,7 +20,7 @@ public class CarScript : MonoBehaviour
 
     public TransmissionTypes transmission;
 
-    public float brakeForce;
+    public float brakeForce = 600f;
 
     public float HandBrakeForce;
     public float siski_skin_pls;
@@ -67,6 +64,7 @@ public class CarScript : MonoBehaviour
             BrakeUpdate();
         }
         else {
+            brakeForce = 1000f;
             for(int i = 0; i < 2; ++i){
                 wheels[i].brakeTorque = 0;
             }
@@ -93,8 +91,13 @@ public class CarScript : MonoBehaviour
     void TurnUpdate(){
         float speed = Vector3.Magnitude(rb.velocity)*3;
         
-        if(speed > 50) maxAngle = 10;
-        else maxAngle = 15;
+        if (speed < 20) {
+            maxAngle = 35;
+        } else if (speed < 50) {
+            maxAngle = 10;
+        } else {
+            maxAngle = 5;
+        }
 
         float curAngle = horizontalInput * maxAngle;
         for(int i = 0; i < 2; ++i){
@@ -104,27 +107,20 @@ public class CarScript : MonoBehaviour
 
     void EngineUpdate(){
         if(Input.GetKeyDown("e") && gear == 0){
-            TurnDrive();
+            TurnOnDrive();
         } else if (Input.GetKeyDown("q")){
-            TurnReverse();
+            TurnOnReverse();
         }
 
         float gearRatio = gearRatioArray[gear];
         
-        maxEngineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
-        
-        if(verticalInput >= 0) engineRpm = maxEngineRpm * verticalInput;
+        engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
 
-        float curMotorTorque = 0;
-        
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
-        curMotorTorque = engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 0.342f * 0.7f;
-        
-        if(gear == 1 || gear == 0) {   
-            curMotorTorque *= verticalInput;
-        }
+
+        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 0.342f * 0.7f;
 
         if(verticalInput < 0) return;
 
@@ -154,8 +150,6 @@ public class CarScript : MonoBehaviour
         }  
         checkGear();
         //check if we need to shift a gear
-
-        
     }
 
     void checkGear(){
@@ -192,11 +186,11 @@ public class CarScript : MonoBehaviour
         return engineRpm;
     } 
 
-    public void TurnReverse(){
+    public void TurnOnReverse(){
         gear = 0;
     }
 
-    public void TurnDrive(){
+    public void TurnOnDrive(){
         gear = 1;
     }
 }

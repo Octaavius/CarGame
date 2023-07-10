@@ -30,6 +30,7 @@ public class CarScript : MonoBehaviour
     
     private static float verticalInput;
     private static float horizontalInput;
+    private ButtonHoldChec brake;
 
     private Rigidbody rb;
 
@@ -50,6 +51,8 @@ public class CarScript : MonoBehaviour
         wheelMeshes[2] = GameObject.Find("RL/wheel");
         wheelMeshes[3] = GameObject.Find("RR/wheel");
 
+        brake = GameObject.FindGameObjectWithTag("Brakes").GetComponent<ButtonHoldChec>();
+
         rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
     }
@@ -60,7 +63,7 @@ public class CarScript : MonoBehaviour
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         
         TurnUpdate();
-        if(verticalInput < 0){
+        if(verticalInput < 0 || brake.buttonPressed){
             BrakeUpdate();
         }
         else {
@@ -165,7 +168,7 @@ public class CarScript : MonoBehaviour
         }
     }
 
-    void BrakeUpdate(){
+    public void BrakeUpdate(){
         for(int i = 0; i < 4; ++i){
             wheels[i].brakeTorque = brakeForce;
         }

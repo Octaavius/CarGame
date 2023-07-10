@@ -64,7 +64,7 @@ namespace SimpleInputNamespace
 			m_value = Vector2.zero;
 
 			xAxis.value = 0f;
-			yAxis.value = 0f;
+			yAxis.value = 0.1f;
 		}
 
 		private void CalculateInput( PointerEventData eventData )
@@ -108,7 +108,7 @@ namespace SimpleInputNamespace
 			}
 
 			xAxis.value = m_value.x;
-			yAxis.value = m_value.y;
+			yAxis.value = (m_value.y > 0)? m_value.y: 0.01f;
 		}
 	}
 }

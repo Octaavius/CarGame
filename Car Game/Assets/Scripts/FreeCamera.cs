@@ -20,7 +20,7 @@ public class FreeCamera : MonoBehaviour
     public float distanceMin = .5f;
     public float distanceMax = 15f;
 
-    private bool fix = true;
+    private bool fixedCamera = true;
 
     private Rigidbody rigidBody;
 
@@ -50,8 +50,8 @@ public class FreeCamera : MonoBehaviour
         float deltaY = Input.GetAxis("Mouse Y");
 
         if(Input.GetKeyDown("r")){
-            fix = fix ? false : true;
-            if(!fix){
+            fixedCamera = fixedCamera ? false : true;
+            if(!fixedCamera){
                 cameraCar.SetActive(false);
                 GetComponent<Camera>().enabled = true;
             }
@@ -61,7 +61,7 @@ public class FreeCamera : MonoBehaviour
             }
         }
         
-        if(target && !fix){
+        if(target && !fixedCamera){
             x += deltaX * xSpeed * distance * 0.02f;
             y-= deltaY * ySpeed * 0.02f;
 
@@ -92,8 +92,8 @@ public class FreeCamera : MonoBehaviour
     } 
 
     public void changeCamera(){
-        fix = (fix)? false : true;
-        if(!fix){
+        fixedCamera = (fixedCamera)? false : true;
+        if(!fixedCamera){
             cameraCar.SetActive(false);
             GetComponent<Camera>().enabled = true;
         }

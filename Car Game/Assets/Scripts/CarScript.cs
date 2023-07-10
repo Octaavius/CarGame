@@ -6,8 +6,11 @@ using System;
 public class CarScript : MonoBehaviour
 {
     private float[] gearRatioArray = {2.9f, 2.66f, 1.78f, 1.3f, 1f, .74f, .5f}; //first ratio is for reverse gear
-    [SerializeField] AnimationCurve enginePower;
+    [SerializeField] AnimationCurve engineRpmToTorque;
 
+    private float enginePower = 1000f;    
+
+    private float maxEngineRpm = 1000f;
     private float engineRpm = 1000f;
     const float multiplier = 60f / (2f * 3.1415926535897931f);
 
@@ -24,12 +27,9 @@ public class CarScript : MonoBehaviour
 
     public float HandBrakeForce;
     public float siski_skin_pls;
-
-    public static int maxGearNum = 6;
     
     private static float verticalInput;
     private static float horizontalInput;
-    private int gearInput;
 
     private Rigidbody rb;
 
@@ -60,8 +60,9 @@ public class CarScript : MonoBehaviour
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         
         TurnUpdate();
-        if(verticalInput < 0)
+        if(verticalInput < 0){
             BrakeUpdate();
+        }
         else {
             for(int i = 0; i < 2; ++i){
                 wheels[i].brakeTorque = 0;
@@ -87,6 +88,11 @@ public class CarScript : MonoBehaviour
     }
 
     void TurnUpdate(){
+        float speed = Vector3.Magnitude(rb.velocity)*3;
+        
+        if(speed > 50) maxAngle = 10;
+        else maxAngle = 15;
+
         float curAngle = horizontalInput * maxAngle;
         for(int i = 0; i < 2; ++i){
             wheels[i].steerAngle = curAngle;
@@ -102,15 +108,23 @@ public class CarScript : MonoBehaviour
 
         float gearRatio = gearRatioArray[gear];
         
-        engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
+        maxEngineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
+        
+        if(verticalInput >= 0) engineRpm = maxEngineRpm * verticalInput;
+
+        float curMotorTorque = 0;
+        
         if(engineRpm < 1000f){
             engineRpm = 1000f;
+        }
+        curMotorTorque = engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 0.342f * 0.7f;
+        
+        if(gear == 1 || gear == 0) {   
+            curMotorTorque *= verticalInput;
         }
 
         if(verticalInput < 0) return;
 
-        float curMotorTorque = verticalInput * enginePower.Evaluate(engineRpm) * gearRatio / 5;;
-        
         if(gear == 0){
             curMotorTorque *= -1;
         } 

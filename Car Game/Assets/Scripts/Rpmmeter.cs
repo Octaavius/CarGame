@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rpmmeter : MonoBehaviour
 {
-    private const float MAX_RPM_ANGLE = -140;
+    private const float MAX_RPM_ANGLE = -45;
     private const float ZERO_RPM_ANGLE = 150;
     
     private Transform needleTransform;

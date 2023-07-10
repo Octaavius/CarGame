@@ -193,4 +193,8 @@ public class CarScript : MonoBehaviour
     public void TurnOnDrive(){
         gear = 1;
     }
+    public void ResetPosition(){
+        rb.velocity = Vector3.zero;
+        transform.position = new Vector3(230f, 17f, 325f);
+    }
 }

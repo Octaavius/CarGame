@@ -144,6 +144,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: brakeForce
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639268879979306971, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
       propertyPath: enginePower.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -331,6 +335,10 @@ PrefabInstance:
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7605310056437986434, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7605310056437986435, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
       propertyPath: m_Name
       value: e36
@@ -418,7 +426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -425, y: -70}
+  m_AnchoredPosition: {x: -425, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110197268
@@ -995,7 +1003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668349067}
   m_LocalRotation: {x: 0.16323988, y: 0, z: 0, w: 0.9865864}
-  m_LocalPosition: {x: 0, y: 1.46, z: -2.89}
+  m_LocalPosition: {x: 0, y: 1.603, z: -2.841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1615,7 +1623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -530, y: 200}
+  m_AnchoredPosition: {x: -530, y: 225}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1025495334
@@ -1853,7 +1861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -25.001709, y: -100}
+  m_AnchoredPosition: {x: -25, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379968505
@@ -2111,8 +2119,9 @@ MonoBehaviour:
   Pos1: {fileID: 668349068}
   Pos2: {fileID: 1492854496}
   Target: {fileID: 817819543}
-  T: {fileID: 2144334361}
+  cameraPosition: {fileID: 2144334361}
   speed: 15
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1802463075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,7 +2579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -1020, y: 300}
+  m_AnchoredPosition: {x: -1020, y: 265}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2116791128
@@ -2651,7 +2660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144334362}
   m_Layer: 0
-  m_Name: Target
+  m_Name: CameraPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2892,7 +2901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 300, y: 250}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224662032228013946
@@ -2913,6 +2922,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 250}
+  m_AnchoredPosition: {x: -200, y: 225}
   m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}

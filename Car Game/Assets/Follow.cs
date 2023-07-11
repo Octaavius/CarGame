@@ -7,23 +7,32 @@ public class Follow : MonoBehaviour
    	public Transform Pos1 = null;
     public Transform Pos2 = null;
     public GameObject Target = null;
-	public GameObject T = null;
+    private GameObject TargetCopy = null;
+
+	public GameObject cameraPosition = null;
 	public float speed = 1.5f;
 
-    public static int mode = 1; 
+    public Vector3 offset;
 
+    public static int mode = 1; 
   
+    void Start(){
+        TargetCopy = new GameObject();
+    }
+
     void FixedUpdate()
-    {
-		this.transform.LookAt(Target.transform);
-		float car_Move = Mathf.Abs(Vector3.Distance(this.transform.position, T.transform.position) * speed);
-		this.transform.position = Vector3.MoveTowards(this.transform.position, T.transform.position, car_Move * Time.deltaTime);
+    {   
+        TargetCopy.transform.position = Target.transform.position + offset;
+
+        this.transform.LookAt(TargetCopy.transform.position);
+		float car_Move = Mathf.Abs(Vector3.Distance(this.transform.position, cameraPosition.transform.position) * speed);
+		this.transform.position = Vector3.MoveTowards(this.transform.position, cameraPosition.transform.position, car_Move * Time.deltaTime);
 
         if(mode == 1){
-            T.transform.position = Pos1.position;
+            cameraPosition.transform.position = Pos1.position;
         }
         else if(mode == 2){
-            T.transform.position = Pos2.position;
+            cameraPosition.transform.position = Pos2.position;
         }
     }
 
@@ -33,5 +42,5 @@ public class Follow : MonoBehaviour
 
     public static void changeModeTo2(){
         mode = 2;
-    }
+    }   
 }

@@ -114,13 +114,13 @@ public class CarScript : MonoBehaviour
 
         float gearRatio = gearRatioArray[gear];
         
-        engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.342f * 0.7f;
+        engineRpm = wheels[0].rpm * gearRatio * multiplier * 3.42f * 0.7f;
 
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
 
-        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 0.342f * 0.7f;
+        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 3.42f * 0.7f;
 
         if(verticalInput < 0) return;
 

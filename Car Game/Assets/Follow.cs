@@ -14,7 +14,7 @@ public class Follow : MonoBehaviour
 
     public Vector3 offset;
 
-    public static int mode = 1; 
+    public int mode = 1; 
   
     void Start(){
         TargetCopy = new GameObject();
@@ -36,11 +36,11 @@ public class Follow : MonoBehaviour
         }
     }
 
-    public static void changeModeTo1(){
+    public void changeModeTo1(){
         mode = 1;
     }
 
-    public static void changeModeTo2(){
+    public void changeModeTo2(){
         mode = 2;
     }   
 }

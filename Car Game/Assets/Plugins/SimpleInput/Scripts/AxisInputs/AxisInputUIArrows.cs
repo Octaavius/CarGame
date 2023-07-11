@@ -64,7 +64,7 @@ namespace SimpleInputNamespace
 			m_value = Vector2.zero;
 
 			xAxis.value = 0f;
-			yAxis.value = 0.1f;
+			yAxis.value = 0f;
 		}
 
 		private void CalculateInput( PointerEventData eventData )

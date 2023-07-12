@@ -50,6 +50,9 @@ public class PhoneCameraRotate : MonoBehaviour
     }
 
     void GetTouchInput() {
+        if(Input.touchCount == 0){
+            lookInput = Vector2.zero;
+        }
         // Iterate through all the detected touches
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -70,11 +73,18 @@ public class PhoneCameraRotate : MonoBehaviour
                         lookInput = t.deltaPosition * cameraSensitivity * Time.deltaTime;
                         break;
 
+                    case TouchPhase.Canceled:
+                        lookInput = Vector2.zero;
+                        break;
+
                     case TouchPhase.Ended:
                         lookInput = Vector2.zero;
                         break;
                 }
             }
+            // else{
+            //     lookInput = Vector2.zero;
+            // }
         }
     }
 

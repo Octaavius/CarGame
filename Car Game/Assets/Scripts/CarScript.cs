@@ -28,6 +28,7 @@ public class CarScript : MonoBehaviour
     private static float verticalInput;
     private static float horizontalInput;
     private ButtonHoldChec brake;
+    private ButtonHoldChec handBrake;
 
     private Rigidbody rb;
 
@@ -49,6 +50,7 @@ public class CarScript : MonoBehaviour
         wheelMeshes[3] = GameObject.Find("RR/wheel");
 
         brake = GameObject.FindGameObjectWithTag("Brakes").GetComponent<ButtonHoldChec>();
+        handBrake = GameObject.FindGameObjectWithTag("handBrakes").GetComponent<ButtonHoldChec>();
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
@@ -69,6 +71,7 @@ public class CarScript : MonoBehaviour
                 wheels[i].brakeTorque = 0;
             }
         }
+
         EngineUpdate();
         wheelUpdate();
         HandBrakeUpdate();  
@@ -168,8 +171,15 @@ public class CarScript : MonoBehaviour
         }
     }
 
-    void HandBrakeUpdate(){
-        bool brakeInput = Input.GetKey(KeyCode.Space);
+    public void HandBrakeUpdateForPhone(){
+        Debug.Log("h");
+        for(int i = 2; i < 4; ++i){
+            wheels[i].brakeTorque = HandBrakeForce;
+        }
+    }
+
+    public void HandBrakeUpdate(){
+        bool brakeInput = Input.GetKey(KeyCode.Space) || handBrake.buttonPressed;
 
         if(brakeInput){
             for(int i = 2; i < 4; ++i){

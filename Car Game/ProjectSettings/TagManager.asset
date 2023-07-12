@@ -8,6 +8,7 @@ TagManager:
   - Pos2
   - Brakes
   - Car
+  - handBrakes
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rpmmeter : MonoBehaviour
+public class Tachometer : MonoBehaviour
 {
     private const float MAX_RPM_ANGLE = -45;
     private const float ZERO_RPM_ANGLE = 150;

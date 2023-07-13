@@ -32,22 +32,24 @@ public class CarScript : MonoBehaviour
 
     private Rigidbody rb;
 
+    [SerializeField]
     public WheelCollider[] wheels = new WheelCollider[4];
     
+    [SerializeField]
     public GameObject[] wheelMeshes = new GameObject[4];
 
     public static int gear = 1;
 
-    void Start(){
-        wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
-        wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
-        wheels[2] = GameObject.Find("RL").GetComponent<WheelCollider>();
-        wheels[3] = GameObject.Find("RR").GetComponent<WheelCollider>();
+    void Awake(){
+        // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
+        // wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
+        // wheels[2] = GameObject.Find("RL").GetComponent<WheelCollider>();
+        // wheels[3] = GameObject.Find("RR").GetComponent<WheelCollider>();
         
-        wheelMeshes[0] = GameObject.Find("FL/wheel");
-        wheelMeshes[1] = GameObject.Find("FR/wheel");
-        wheelMeshes[2] = GameObject.Find("RL/wheel");
-        wheelMeshes[3] = GameObject.Find("RR/wheel");
+        // wheelMeshes[0] = GameObject.Find("FL/wheel");
+        // wheelMeshes[1] = GameObject.Find("FR/wheel");
+        // wheelMeshes[2] = GameObject.Find("RL/wheel");
+        // wheelMeshes[3] = GameObject.Find("RR/wheel");
 
         brake = GameObject.FindGameObjectWithTag("Brakes").GetComponent<ButtonHoldChec>();
         handBrake = GameObject.FindGameObjectWithTag("handBrakes").GetComponent<ButtonHoldChec>();
@@ -202,9 +204,5 @@ public class CarScript : MonoBehaviour
 
     public void TurnOnDrive(){
         gear = 1;
-    }
-    public void ResetPosition(){
-        rb.velocity = Vector3.zero;
-        transform.position = new Vector3(230f, 17f, 325f);
     }
 }

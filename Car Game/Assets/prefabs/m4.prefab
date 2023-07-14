@@ -251,20 +251,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.68755627
       value: 1.1683712
-      inSlope: 0.55784076
-      outSlope: 0.55784076
+      inSlope: 0.6025502
+      outSlope: 0.6025502
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.04114007
+      outWeight: 0.23428567
+    - serializedVersion: 3
+      time: 1008.5826
+      value: 269.49005
+      inSlope: 0.036053892
+      outSlope: 0.036053892
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38823003
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 6017.442
       value: 515.6211
-      inSlope: -0.7065517
-      outSlope: -0.7065517
+      inSlope: -0.17388254
+      outSlope: -0.17388254
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.028422343
+      inWeight: 0.082345404
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -273,7 +282,6 @@ MonoBehaviour:
   transmission: 2
   brakeForce: 600
   HandBrakeForce: 10000
-  siski_skin_pls: 0
   wheels:
   - {fileID: 7856541665897708230}
   - {fileID: 1954489648983776494}

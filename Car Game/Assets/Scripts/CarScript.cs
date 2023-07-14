@@ -23,7 +23,6 @@ public class CarScript : MonoBehaviour
     public float brakeForce = 600f;
 
     public float HandBrakeForce;
-    public float siski_skin_pls;
     
     private static float verticalInput;
     private static float horizontalInput;
@@ -120,14 +119,18 @@ public class CarScript : MonoBehaviour
         float gearRatio = gearRatioArray[gear];
         
         engineRpm = wheels[0].rpm * gearRatio * multiplier * 3.42f * 0.7f;
+        Debug.Log(wheels[0].rpm);
 
+        if(engineRpm < 0){
+            engineRpm *= -1;
+        }
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
 
-        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 3.42f * 0.7f;
-
         if(verticalInput < 0) return;
+
+        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 3.42f * 0.7f;
 
         if(gear == 0){
             curMotorTorque *= -1;
@@ -158,11 +161,11 @@ public class CarScript : MonoBehaviour
     }
 
     void checkGear(){
-        if(engineRpm > 5000f && gear != 6){
+        if(engineRpm > 5000f && gear != 6 && gear != 0){
             gear++;
         } else if(engineRpm < 2000f && gear != 1 && gear != 0){
             gear--;
-        } else if(engineRpm > 6000f && gear == 6){
+        } else if(engineRpm > 6000f && (gear == 6 || gear == 0)){
             engineRpm = 6000f;
         }
     }

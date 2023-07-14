@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         CarPark carParkScr = carParkObj.GetComponent<CarPark>();
-        Debug.Log("alksdjalksd");
         currentCar = Instantiate(currentCar, spawnPoint.transform.position, Quaternion.identity);
         
         Follow followScript = carCamera.GetComponent<Follow>();
@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
 
         Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
         speedometerScr.car = currentCar;
+
+        Button reverseButton = UI.transform.Find("Canvas/GearButtons/ReverseButton").GetComponent<Button>();
+        reverseButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnReverse());
+
+        Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
+        driveButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnDrive());
     }
 
     public void ChangeCar(){
@@ -49,6 +55,12 @@ public class GameManager : MonoBehaviour
 
         Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
         speedometerScr.car = currentCar;
+
+        Button reverseButton = UI.transform.Find("Canvas/GearButtons/ReverseButton").GetComponent<Button>();
+        reverseButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnReverse());
+
+        Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
+        driveButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnDrive());
     }
 
     public void resetPosition(){

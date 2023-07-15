@@ -14,6 +14,8 @@ public class PhoneCameraRotate : MonoBehaviour
     // Touch detection
     private float minHeght;
 
+    private float widthPart;
+
     // Camera control
     private Vector2 lookInput;
 
@@ -39,6 +41,8 @@ public class PhoneCameraRotate : MonoBehaviour
 
         // only calculate once
         minHeght = Screen.height / 2;
+
+        widthPart = Screen.width / 4;
         
     }
 
@@ -58,7 +62,7 @@ public class PhoneCameraRotate : MonoBehaviour
         {
             Touch t = Input.GetTouch(i);
 
-            if(t.position.y > minHeght)
+            if(t.position.y > minHeght && t.position.x > widthPart && t.position.x  < 3 * widthPart)
             {
                 // Check each touch's phase
                 switch (t.phase)

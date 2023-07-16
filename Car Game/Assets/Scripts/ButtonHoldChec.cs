@@ -7,7 +7,7 @@ public class ButtonHoldChec : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     public bool buttonPressed;
      
     public void OnPointerDown(PointerEventData eventData){
-         buttonPressed = true;
+        buttonPressed = true;
     }
      
     public void OnPointerUp(PointerEventData eventData){

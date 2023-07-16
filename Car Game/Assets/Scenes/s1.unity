@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 483162553}
   - component: {fileID: 483162552}
   - component: {fileID: 483162555}
+  - component: {fileID: 483162556}
   m_Layer: 0
   m_Name: HandBrake
   m_TagString: handBrakes
@@ -1055,7 +1056,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 483162553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 483162556}
+        m_TargetAssemblyTypeName: TransparentCode, Assembly-CSharp
+        m_MethodName: makeTransparent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &483162553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,7 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1107,6 +1120,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPressed: 0
+--- !u!114 &483162556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483162550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896d4f31eb328e54ca12870e3bfe5f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentModeOn: 1
+  transparentModeOff: 0.5
 --- !u!1 &600275487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1784,7 @@ GameObject:
   - component: {fileID: 922638227}
   - component: {fileID: 922638226}
   - component: {fileID: 922638225}
+  - component: {fileID: 922638228}
   m_Layer: 0
   m_Name: DriveButton
   m_TagString: Untagged
@@ -1878,7 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1903,6 +1931,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922638223}
   m_CullTransparentMesh: 1
+--- !u!114 &922638228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922638223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896d4f31eb328e54ca12870e3bfe5f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentModeOn: 1
+  transparentModeOff: 0.5
 --- !u!1 &932301109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2682,7 @@ GameObject:
   - component: {fileID: 1802463079}
   - component: {fileID: 1802463078}
   - component: {fileID: 1802463077}
+  - component: {fileID: 1802463080}
   m_Layer: 0
   m_Name: ReverseButton
   m_TagString: Untagged
@@ -2761,7 +2804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2786,6 +2829,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802463075}
   m_CullTransparentMesh: 1
+--- !u!114 &1802463080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802463075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896d4f31eb328e54ca12870e3bfe5f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentModeOn: 1
+  transparentModeOff: 0.5
 --- !u!1 &1870621068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,7 +3240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -413,9 +413,11 @@ GameObject:
   - component: {fileID: 7115878310629961273}
   - component: {fileID: 7605310056437986437}
   - component: {fileID: 7605310056437986434}
-  - component: {fileID: 4639268879979306971}
+  - component: {fileID: 6059675843476870324}
+  - component: {fileID: 7449181566026980825}
+  - component: {fileID: 7168649184051227271}
   m_Layer: 0
-  m_Name: e36 prefab player
+  m_Name: Player
   m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,47 +493,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &4639268879979306971
+--- !u!114 &6059675843476870324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7605310056437986435}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e191d3a2f9d7974f832221cd3a77250, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7449181566026980825}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7449181566026980825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605310056437986435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 0.25
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
+--- !u!114 &7168649184051227271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605310056437986435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6fe8e329135bf4eae1e352f88b9127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   engineRpmToTorque:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.68755627
-      value: 1.1683712
-      inSlope: 0.6025502
-      outSlope: 0.6025502
+      time: -0.84148943
+      value: 0.91734725
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.23428567
+      outWeight: 0
     - serializedVersion: 3
-      time: 1008.5826
-      value: 269.49005
-      inSlope: 0.036053892
-      outSlope: 0.036053892
+      time: 547.96643
+      value: 535.77563
+      inSlope: 0.015555801
+      outSlope: 0.015555801
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.38823003
-      outWeight: 0.33333334
+      inWeight: 1
+      outWeight: 0
     - serializedVersion: 3
-      time: 6017.442
-      value: 515.6211
-      inSlope: -0.17388254
-      outSlope: -0.17388254
+      time: 549.56793
+      value: 535.591
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.082345404
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

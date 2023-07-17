@@ -529,7 +529,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 2057596067}
   carParkObj: {fileID: 1870621068}
   carCamera: {fileID: 1659938790}
-  currentCar: {fileID: 7605310056437986435, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
   UI: {fileID: 94950589}
 --- !u!4 &152411332
 Transform:
@@ -2602,10 +2601,9 @@ GameObject:
   - component: {fileID: 1659938792}
   - component: {fileID: 1659938795}
   - component: {fileID: 1659938796}
-  - component: {fileID: 1659938797}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2691,12 +2689,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659938790}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c35771cfee089c4da0dd2f0316f9803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  Target: {fileID: 1659938790}
   speed: 15
   offset: {x: 0, y: 0.7, z: 0}
   mode: 1
@@ -2717,27 +2715,6 @@ MonoBehaviour:
   moveSpeed: 100
   Target: {fileID: 0}
   distance: 4
---- !u!114 &1659938797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659938790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ca348a5417f144993974aa51792fad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  cameraCar: {fileID: 0}
-  distance: 5
-  xSpeed: 120
-  ySpeed: 120
-  yMinLimit: -20
-  yMaxLimit: 80
-  distanceMin: 0.5
-  distanceMax: 15
 --- !u!1 &1802463075
 GameObject:
   m_ObjectHideFlags: 0

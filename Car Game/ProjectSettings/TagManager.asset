@@ -10,6 +10,7 @@ TagManager:
   - Car
   - handBrakes
   - GearSprite
+  - UI
   layers:
   - Default
   - TransparentFX

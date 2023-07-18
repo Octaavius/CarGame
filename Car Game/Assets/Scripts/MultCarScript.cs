@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class MultCarScript : MonoBehaviour
@@ -26,6 +27,8 @@ public class MultCarScript : MonoBehaviour
     
     private static float verticalInput;
     private static float horizontalInput;
+    private ButtonHoldChec brake;
+    private ButtonHoldChec handBrake;
 
     private Rigidbody rb;
 
@@ -38,6 +41,8 @@ public class MultCarScript : MonoBehaviour
     public static int gear = 1;
 
     private PhotonView view;
+
+    private GameObject UI;
 
     void Awake(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -54,7 +59,26 @@ public class MultCarScript : MonoBehaviour
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
         view = GetComponent<PhotonView>();
         if (view.Owner.IsLocal){
+            UI = GameObject.FindGameObjectWithTag("UI");
             Camera.main.GetComponent<Follow>().Target = gameObject;
+            
+            brake = GameObject.FindGameObjectWithTag("Brakes").GetComponent<ButtonHoldChec>();
+            handBrake = GameObject.FindGameObjectWithTag("handBrakes").GetComponent<ButtonHoldChec>();
+  
+            PhoneCameraRotate phoneCameraScript = Camera.main.GetComponent<PhoneCameraRotate>();
+            phoneCameraScript.Target = gameObject.transform;
+
+            //Tachometer tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<Tachometer>();
+            //tachometerScr.carScript = GetComponent<MultCarScript>();
+
+            //Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
+            //speedometerScr.car = gameObject;
+
+            Button reverseButton = UI.transform.Find("Canvas/GearButtons/ReverseButton").GetComponent<Button>();
+            reverseButton.onClick.AddListener(() => TurnOnReverse());
+
+            Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
+            driveButton.onClick.AddListener(() => TurnOnDrive());
         }
     }
 

@@ -8,8 +8,10 @@ public class CarScript : MonoBehaviour
     private float[] gearRatioArray = {2.9f, 2.66f, 1.78f, 1.3f, 1f, .74f, .5f}; //first ratio is for reverse gear
     [SerializeField] AnimationCurve engineRpmToTorque;  
 
+    public float enginePower = 4f;
+
     private float engineRpm = 1000f;
-    const float multiplier = 60f / (2f * 3.1415926535897931f);
+    const float multiplier = 60f * 3.42f / (2f * 3.1415926535897931f) ;
 
     public float maxAngle;
 
@@ -20,24 +22,22 @@ public class CarScript : MonoBehaviour
 
     public TransmissionTypes transmission;
 
-    public float brakeForce = 600f;
+    public float brakeForce = 200f;
 
     public float HandBrakeForce;
     
-    private static float verticalInput;
-    private static float horizontalInput;
+    private  float verticalInput;
+    private  float horizontalInput;
     private ButtonHoldChec brake;
     private ButtonHoldChec handBrake;
 
     private Rigidbody rb;
 
-    [SerializeField]
     public WheelCollider[] wheels = new WheelCollider[4];
     
-    [SerializeField]
     public GameObject[] wheelMeshes = new GameObject[4];
 
-    public static int gear = 1;
+    public  int gear = 1;
 
     void Awake(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -67,7 +67,6 @@ public class CarScript : MonoBehaviour
             BrakeUpdate();
         }
         else {
-            brakeForce = 1000f;
             for(int i = 0; i < 2; ++i){
                 wheels[i].brakeTorque = 0;
             }
@@ -95,13 +94,13 @@ public class CarScript : MonoBehaviour
     void TurnUpdate(){
         float speed = Vector3.Magnitude(rb.velocity)*3;
         
-        if (speed < 20) {
-            maxAngle = 35;
-        } else if (speed < 50) {
-            maxAngle = 10;
-        } else {
-            maxAngle = 5;
-        }
+        // if (speed < 20) {
+        //     maxAngle = 35;
+        // } else if (speed < 50) {
+        //     maxAngle = 10;
+        // } else {
+        //     maxAngle = 5;
+        //}
 
         float curAngle = horizontalInput * maxAngle;
         for(int i = 0; i < 2; ++i){
@@ -118,19 +117,22 @@ public class CarScript : MonoBehaviour
 
         float gearRatio = gearRatioArray[gear];
         
-        engineRpm = wheels[0].rpm * gearRatio * multiplier * 3.42f * 0.7f;
-        Debug.Log(wheels[0].rpm);
+        engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.15f;
+        Debug.Log(gear);
 
         if(engineRpm < 0){
             engineRpm *= -1;
         }
+        
+        checkGear();
+        
         if(engineRpm < 1000f){
             engineRpm = 1000f;
         }
 
         if(verticalInput < 0) return;
 
-        float curMotorTorque = verticalInput * engineRpmToTorque.Evaluate(engineRpm) * gearRatio * 3.42f * 0.7f;
+        float curMotorTorque = verticalInput * (engineRpmToTorque.Evaluate(engineRpm) * enginePower / 10f) * gearRatio * 3.42f * 0.7f;
 
         if(gear == 0){
             curMotorTorque *= -1;
@@ -155,15 +157,13 @@ public class CarScript : MonoBehaviour
                     wheels[i].motorTorque = curMotorTorque / 4;
                 }
                 break;
-        }  
-        checkGear();
-        //check if we need to shift a gear
+        }
     }
 
     void checkGear(){
         if(engineRpm > 5000f && gear != 6 && gear != 0){
             gear++;
-        } else if(engineRpm < 2000f && gear != 1 && gear != 0){
+        } else if(engineRpm < 1000f && gear != 1 && gear != 0){
             gear--;
         } else if(engineRpm > 6000f && (gear == 6 || gear == 0)){
             engineRpm = 6000f;

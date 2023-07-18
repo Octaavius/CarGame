@@ -1,33 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tachometer : MonoBehaviour
 {
     private const float MAX_RPM_ANGLE = -45;
     private const float ZERO_RPM_ANGLE = 150;
     
-    private Transform needleTransform;
-    public GameObject car;
-    private Animator animator;
+    private Transform needle;
+    private Transform gearNumber;
+
+    public CarScript carScript;
 
     private float rpmMax;
 
     private void Awake(){
-        needleTransform = transform.Find("needle");
-        animator = needleTransform.GetComponent<Animator>();
+        needle = transform.Find("needle");
+        gearNumber = transform.Find("gear");
         rpmMax = 6000f;
     }
 
     private void Update(){
-        needleTransform.eulerAngles = new Vector3(0, 0, GetRpmRotation());
+        needle.eulerAngles = new Vector3(0, 0, GetRpmRotation());
+        gearNumber.GetComponent<Text>().text = carScript.gear.ToString(); 
     }
 
     private float GetRpmRotation(){
         float totalAngleSize = ZERO_RPM_ANGLE - MAX_RPM_ANGLE;
-
-        CarScript carScript = car.GetComponent<CarScript>();
-
         float rpmNormalized = carScript.getEngineRpm() / rpmMax;
         return ZERO_RPM_ANGLE - rpmNormalized * totalAngleSize;
     }

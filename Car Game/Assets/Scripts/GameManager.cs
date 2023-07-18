@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject UI;
 
     void Start(){
-        Application.targetFrameRate = -1;
+        Application.targetFrameRate = 120;
 
         carParkScr = carParkObj.GetComponent<CarPark>();
         currentCar = carParkScr.carList[0];
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         phoneCameraScript.Target = currentCar.transform;
 
         Tachometer tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<Tachometer>();
-        tachometerScr.car = currentCar;
+        tachometerScr.carScript = currentCar.GetComponent<CarScript>();
 
         Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
         speedometerScr.car = currentCar;

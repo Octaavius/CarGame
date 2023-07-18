@@ -1,25 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Speedometer : MonoBehaviour
 {
     private const float MAX_SPEED_ANGLE = -140;
     private const float ZERO_SPEED_ANGLE = 150;
     
-    private Transform needleTransform;
+    private Transform needle;
+    private Transform speed;
+    
     public GameObject car;
+    
 
     private float speedMax;
 
     private void Awake(){
-        needleTransform = transform.Find("needle");
+        needle = transform.Find("needle");
+        speed = transform.Find("speed");
 
         speedMax = 200f;
     }
 
     private void Update(){
-        needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
+        needle.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
+        speed.GetComponent<Text>().text = ((int)(Vector3.Magnitude(car.GetComponent<Rigidbody>().velocity)*3)).ToString(); 
     }
 
     private float GetSpeedRotation(){

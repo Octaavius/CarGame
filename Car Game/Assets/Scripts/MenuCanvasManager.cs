@@ -8,4 +8,8 @@ public class MenuCanvasManager : MonoBehaviour
     public void LoadSimpleGameMode(){
         SceneManager.LoadScene("S1");
     }
+
+    public void MultiMenuLoad(){
+        SceneManager.LoadScene("LoadingMultiplayerScene");
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 
@@ -86,6 +87,9 @@ public class MultCarScript : MonoBehaviour
             spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
             Button resetButton = UI.transform.Find("Canvas/otherButtons/ResetButton").GetComponent<Button>();
             resetButton.onClick.AddListener(() => resetPosition());
+
+            Button menuButton = UI.transform.Find("Canvas/otherButtons/MenuButton").GetComponent<Button>();
+            menuButton.onClick.AddListener(() => GoToMenu());
         }
     }
 
@@ -240,4 +244,8 @@ public class MultCarScript : MonoBehaviour
         rb.velocity = Vector3.zero;
         transform.position = spawnPoint.transform.position; 
     } 
+
+    public void GoToMenu(){
+        SceneManager.LoadScene("Menu");
+    }
 }

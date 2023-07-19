@@ -12,6 +12,7 @@ TagManager:
   - GearSprite
   - UI
   - SpawnPoint
+  - MenuButton
   layers:
   - Default
   - TransparentFX

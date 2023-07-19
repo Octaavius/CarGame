@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -57,4 +58,8 @@ public class GameManager : MonoBehaviour
         rb.velocity = Vector3.zero;
         currentCar.transform.position = spawnPoint.transform.position; 
     } 
+    
+    public void GoToMenu(){
+        SceneManager.LoadScene("Menu");
+    }
 }

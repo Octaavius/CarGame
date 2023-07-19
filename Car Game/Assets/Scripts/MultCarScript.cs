@@ -38,11 +38,13 @@ public class MultCarScript : MonoBehaviour
     [SerializeField]
     public GameObject[] wheelMeshes = new GameObject[4];
 
-    public static int gear = 1;
+    public int gear = 1;
 
     private PhotonView view;
 
     private GameObject UI;
+
+    public GameObject spawnPoint;
 
     void Awake(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -68,17 +70,22 @@ public class MultCarScript : MonoBehaviour
             PhoneCameraRotate phoneCameraScript = Camera.main.GetComponent<PhoneCameraRotate>();
             phoneCameraScript.Target = gameObject.transform;
 
-            //Tachometer tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<Tachometer>();
-            //tachometerScr.carScript = GetComponent<MultCarScript>();
+            TachometerMult tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<TachometerMult>();
+            tachometerScr.carScript = GetComponent<MultCarScript>();
 
-            //Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
-            //speedometerScr.car = gameObject;
+            Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
+            speedometerScr.car = gameObject;
 
             Button reverseButton = UI.transform.Find("Canvas/GearButtons/ReverseButton").GetComponent<Button>();
             reverseButton.onClick.AddListener(() => TurnOnReverse());
 
             Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
             driveButton.onClick.AddListener(() => TurnOnDrive());
+
+
+            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+            Button resetButton = UI.transform.Find("Canvas/otherButtons/ResetButton").GetComponent<Button>();
+            resetButton.onClick.AddListener(() => resetPosition());
         }
     }
 
@@ -89,11 +96,10 @@ public class MultCarScript : MonoBehaviour
              horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         
             TurnUpdate();
-            if(verticalInput < 0){
-               BrakeUpdate();
+            if(verticalInput < 0 || brake.buttonPressed){
+                BrakeUpdate();
             }
             else {
-                brakeForce = 1000f;
                 for(int i = 0; i < 2; ++i){
                     wheels[i].brakeTorque = 0;
                 }
@@ -203,14 +209,8 @@ public class MultCarScript : MonoBehaviour
         }
     }
 
-    public void HandBrakeUpdateForPhone(){
-        for(int i = 2; i < 4; ++i){
-            wheels[i].brakeTorque = HandBrakeForce;
-        }
-    }
-
     public void HandBrakeUpdate(){
-        bool brakeInput = Input.GetKey(KeyCode.Space);
+        bool brakeInput = Input.GetKey(KeyCode.Space) || handBrake.buttonPressed;
 
         if(brakeInput){
             for(int i = 2; i < 4; ++i){
@@ -234,4 +234,10 @@ public class MultCarScript : MonoBehaviour
     public void TurnOnDrive(){
         gear = 1;
     }
+
+    public void resetPosition(){
+        Rigidbody rb = GetComponent<Rigidbody>(); 
+        rb.velocity = Vector3.zero;
+        transform.position = spawnPoint.transform.position; 
+    } 
 }

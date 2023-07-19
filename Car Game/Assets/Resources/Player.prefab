@@ -608,6 +608,8 @@ MonoBehaviour:
   - {fileID: 1969084236493594893}
   - {fileID: 4242874001277497957}
   - {fileID: 828831230266505763}
+  gear: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &7873024190301208244
 GameObject:
   m_ObjectHideFlags: 0

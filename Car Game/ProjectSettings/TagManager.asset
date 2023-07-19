@@ -11,6 +11,7 @@ TagManager:
   - handBrakes
   - GearSprite
   - UI
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

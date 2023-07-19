@@ -176,13 +176,6 @@ public class CarScript : MonoBehaviour
         }
     }
 
-    public void HandBrakeUpdateForPhone(){
-        Debug.Log("h");
-        for(int i = 2; i < 4; ++i){
-            wheels[i].brakeTorque = HandBrakeForce;
-        }
-    }
-
     public void HandBrakeUpdate(){
         bool brakeInput = Input.GetKey(KeyCode.Space) || handBrake.buttonPressed;
 

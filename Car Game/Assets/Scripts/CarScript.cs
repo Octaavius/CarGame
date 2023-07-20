@@ -28,10 +28,10 @@ public class CarScript : MonoBehaviour
     
     private  float verticalInput;
     private  float horizontalInput;
-    private ButtonHoldChec brake;
-    private ButtonHoldChec handBrake;
+    protected ButtonHoldChec brake;
+    protected ButtonHoldChec handBrake;
 
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
     public WheelCollider[] wheels = new WheelCollider[4];
     
@@ -58,7 +58,7 @@ public class CarScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    protected void Update(){
         verticalInput = SimpleInput.GetAxis("Vertical");
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         

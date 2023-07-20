@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7605310056437986434}
   - component: {fileID: 6059675843476870324}
   - component: {fileID: 7449181566026980825}
-  - component: {fileID: 7168649184051227271}
+  - component: {fileID: 3657573775987286688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Car
@@ -549,7 +549,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &7168649184051227271
+--- !u!114 &3657573775987286688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -558,15 +558,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7605310056437986435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6fe8e329135bf4eae1e352f88b9127, type: 3}
+  m_Script: {fileID: 11500000, guid: 11a1f097cfa4ef04b946a1a4a387cf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   engineRpmToTorque:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.84148943
-      value: 0.91734725
+      time: -3.2721326
+      value: 7.904986
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -574,17 +574,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 547.96643
-      value: 535.77563
-      inSlope: 0.015555801
-      outSlope: 0.015555801
+      time: 630.0714
+      value: 549.9861
+      inSlope: 0.09510644
+      outSlope: 0.09510644
       tangentMode: 0
       weightedMode: 0
-      inWeight: 1
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 549.56793
-      value: 535.591
+      time: 6017.777
+      value: 1136.2402
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -594,10 +594,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enginePower: 4
   maxAngle: 30
   transmission: 2
   brakeForce: 600
-  HandBrakeForce: 10000
+  HandBrakeForce: 1000
   wheels:
   - {fileID: 7217660557516569352}
   - {fileID: 3275168436261240200}

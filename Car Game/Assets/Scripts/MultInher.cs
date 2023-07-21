@@ -49,6 +49,12 @@ public class MultInher : CarScript
         }
     }
 
+    private void Start(){
+        PhotonNetwork.SendRate = 30;
+
+        PhotonNetwork.SerializationRate = 30;
+    }
+
     public void ResetPosition(){
         Rigidbody rb = GetComponent<Rigidbody>(); 
         rb.velocity = Vector3.zero;

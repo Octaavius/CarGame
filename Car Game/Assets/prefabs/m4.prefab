@@ -58,7 +58,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -130,7 +130,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -260,15 +260,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1008.5826
       value: 269.49005
-      inSlope: 0.036053892
-      outSlope: 0.036053892
+      inSlope: 0.1441712
+      outSlope: 0.1441712
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.38823003
+      outWeight: 0.0423047
+    - serializedVersion: 3
+      time: 4988.5674
+      value: 574.1482
+      inSlope: -0.0043898416
+      outSlope: -0.0043898416
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 6017.442
-      value: 515.6211
+      time: 6009.094
+      value: 484.899
       inSlope: -0.17388254
       outSlope: -0.17388254
       tangentMode: 0
@@ -293,6 +302,7 @@ MonoBehaviour:
   - {fileID: 4537356360489070246}
   - {fileID: 3340557367544901267}
   - {fileID: 4867110110415213394}
+  gear: 1
 --- !u!1 &5424366242069246853
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +361,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -568,7 +578,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -666,10 +676,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 500928c74dd944c49ab70686959f60ae, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 500928c74dd944c49ab70686959f60ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -738,10 +744,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 500928c74dd944c49ab70686959f60ae, type: 3}
       propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 500928c74dd944c49ab70686959f60ae, type: 3}
-      propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 500928c74dd944c49ab70686959f60ae, type: 3}

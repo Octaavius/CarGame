@@ -14,6 +14,7 @@ public class CarScript : MonoBehaviour
     const float multiplier = 60f * 3.42f / (2f * 3.1415926535897931f) ;
 
     public float maxAngle;
+    protected float angle; 
 
     public enum TransmissionTypes
     {
@@ -26,8 +27,8 @@ public class CarScript : MonoBehaviour
 
     public float HandBrakeForce;
     
-    private  float verticalInput;
-    private  float horizontalInput;
+    private float verticalInput;
+    private float horizontalInput;
     protected ButtonHoldChec brake;
     protected ButtonHoldChec handBrake;
 
@@ -94,15 +95,15 @@ public class CarScript : MonoBehaviour
     void TurnUpdate(){
         float speed = Vector3.Magnitude(rb.velocity)*3;
         
-        // if (speed < 20) {
-        //     maxAngle = 35;
-        // } else if (speed < 50) {
-        //     maxAngle = 10;
-        // } else {
-        //     maxAngle = 5;
-        //}
+        if (speed < 40) {
+            angle = maxAngle;
+        } else if (speed < 75){
+            angle = 80 - speed;
+        } else {
+            angle = 5;
+        }
 
-        float curAngle = horizontalInput * maxAngle;
+        float curAngle = horizontalInput * angle;
         for(int i = 0; i < 2; ++i){
             wheels[i].steerAngle = curAngle;
         }
@@ -161,11 +162,12 @@ public class CarScript : MonoBehaviour
     }
 
     void checkGear(){
-        if(engineRpm > 5000f && gear != 6 && gear != 0){
+        Debug.Log(engineRpm);
+        if(gear != 6 && gear != 0 && engineRpm > 4400f){
             gear++;
-        } else if(engineRpm < 1000f && gear != 1 && gear != 0){
+        } else if(gear != 1 && gear != 0 && engineRpm * (gearRatioArray[gear - 1])/ gearRatioArray[gear] < 4200f){
             gear--;
-        } else if(engineRpm > 6000f && (gear == 6 || gear == 0)){
+        } else if((gear == 6 || gear == 0) && engineRpm > 6000f){
             engineRpm = 6000f;
         }
     }

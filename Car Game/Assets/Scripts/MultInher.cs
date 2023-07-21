@@ -60,7 +60,7 @@ public class MultInher : CarScript
         SceneManager.LoadScene("Menu");
     }
 
-    void Update() {
+    new void Update() {
         if(view.IsMine){
             base.Update();
         }

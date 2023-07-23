@@ -55,7 +55,7 @@ public class CarScript : MonoBehaviour
         handBrake = GameObject.FindGameObjectWithTag("handBrakes").GetComponent<ButtonHoldChec>();
 
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
+        rb.centerOfMass = new Vector3(0f, 0.1f, 0f);
     }
 
     // Update is called once per frame

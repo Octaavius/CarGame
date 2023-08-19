@@ -13,6 +13,8 @@ TagManager:
   - UI
   - SpawnPoint
   - MenuButton
+  - backLights
+  - stearingWheel
   layers:
   - Default
   - TransparentFX

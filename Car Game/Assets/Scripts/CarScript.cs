@@ -40,6 +40,9 @@ public class CarScript : MonoBehaviour
 
     public  int gear = 1;
 
+    private GameObject backLights = null;
+    private GameObject stearingWheel = null;
+
     void Awake(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
         // wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
@@ -53,6 +56,8 @@ public class CarScript : MonoBehaviour
 
         brake = GameObject.FindGameObjectWithTag("Brakes").GetComponent<ButtonHoldChec>();
         handBrake = GameObject.FindGameObjectWithTag("handBrakes").GetComponent<ButtonHoldChec>();
+        backLights = GameObject.FindGameObjectWithTag("backLights");
+        stearingWheel = GameObject.FindGameObjectWithTag("stearingWheel");
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -.4f, 0f);
@@ -66,11 +71,15 @@ public class CarScript : MonoBehaviour
         TurnUpdate();
         if(verticalInput < 0 || brake.buttonPressed){
             BrakeUpdate();
+            if(backLights)
+                backLights.SetActive(true);
         }
         else {
             for(int i = 0; i < 2; ++i){
                 wheels[i].brakeTorque = 0;
             }
+            if(backLights)
+                backLights.SetActive(false);
         }
 
         EngineUpdate();
@@ -104,6 +113,9 @@ public class CarScript : MonoBehaviour
         }
 
         float curAngle = horizontalInput * angle;
+        if(stearingWheel){
+            stearingWheel.transform.localRotation  = horizontalInput != 0 ? Quaternion.Euler(0, -90, 720f / horizontalInput) : Quaternion.Euler(0, -90, 0);
+        }
         for(int i = 0; i < 2; ++i){
             wheels[i].steerAngle = curAngle;
         }
@@ -119,7 +131,7 @@ public class CarScript : MonoBehaviour
         float gearRatio = gearRatioArray[gear];
         
         engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.15f;
-        Debug.Log(gear);
+        //Debug.Log(gear);
 
         if(engineRpm < 0){
             engineRpm *= -1;
@@ -162,7 +174,7 @@ public class CarScript : MonoBehaviour
     }
 
     void checkGear(){
-        Debug.Log(engineRpm);
+        //Debug.Log(engineRpm);
         if(gear != 6 && gear != 0 && engineRpm > 4400f){
             gear++;
         } else if(gear != 1 && gear != 0 && engineRpm * (gearRatioArray[gear - 1])/ gearRatioArray[gear] < 4200f){

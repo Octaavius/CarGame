@@ -13,7 +13,7 @@ public class CarScript : MonoBehaviour
     private float engineRpm = 1000f;
     const float multiplier = 60f * 3.42f / (2f * 3.1415926535897931f) ;
 
-    public float maxAngle;
+    public float maxAngle = 30;
     protected float angle; 
 
     public enum TransmissionTypes
@@ -23,9 +23,9 @@ public class CarScript : MonoBehaviour
 
     public TransmissionTypes transmission;
 
-    public float brakeForce = 200f;
+    public float brakeForce = 600f;
 
-    public float HandBrakeForce;
+    public float HandBrakeForce = 10000f;
     
     private float verticalInput;
     private float horizontalInput;

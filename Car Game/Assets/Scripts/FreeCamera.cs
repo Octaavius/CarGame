@@ -8,7 +8,8 @@ public class FreeCamera : MonoBehaviour
 
     public Transform target;
 
-    public GameObject cameraCar;
+    public GameObject fixedCamera;
+    public GameObject freeCamera;
 
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
@@ -20,7 +21,7 @@ public class FreeCamera : MonoBehaviour
     public float distanceMin = .5f;
     public float distanceMax = 15f;
 
-    private bool fixedCamera = true;
+    private bool isFixed = true;
 
     private Rigidbody rigidBody;
 
@@ -36,8 +37,8 @@ public class FreeCamera : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody>();
         
-        GetComponent<Camera>().enabled = false;
-        cameraCar.SetActive(true);
+        freeCamera.SetActive(false);
+        fixedCamera.SetActive(true);
 
         if(rigidBody != null){
             rigidBody.freezeRotation = true;
@@ -50,32 +51,24 @@ public class FreeCamera : MonoBehaviour
         float deltaY = Input.GetAxis("Mouse Y");
 
         if(Input.GetKeyDown("r")){
-            fixedCamera = fixedCamera ? false : true;
-            if(!fixedCamera){
-                cameraCar.SetActive(false);
-                GetComponent<Camera>().enabled = true;
-            }
-            else{
-                GetComponent<Camera>().enabled = false;
-                cameraCar.SetActive(true);
-            }
+            changeCamera();
         }
-        
-        if(target && !fixedCamera){
+
+        if(target && !isFixed){
             x += deltaX * xSpeed * distance * 0.02f;
-            y-= deltaY * ySpeed * 0.02f;
+            y -= deltaY * ySpeed * 0.02f;
 
             y = ClampAngle(y, yMinLimit, yMaxLimit);
 
             Quaternion rotation = Quaternion.Euler(y, x, 0);
-            transform.rotation = rotation;
+            freeCamera.transform.rotation = rotation;
 
             distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
 
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + target.position;
 
-            transform.position = position;
+            freeCamera.transform.position = position;
         }
 
 
@@ -92,14 +85,15 @@ public class FreeCamera : MonoBehaviour
     } 
 
     public void changeCamera(){
-        fixedCamera = (fixedCamera)? false : true;
-        if(!fixedCamera){
-            cameraCar.SetActive(false);
-            GetComponent<Camera>().enabled = true;
+        if(isFixed){
+            fixedCamera.SetActive(false);
+            freeCamera.SetActive(true);
         }
         else{
-            GetComponent<Camera>().enabled = false;
-            cameraCar.SetActive(true);
+            freeCamera.SetActive(false);
+            fixedCamera.SetActive(true);
         }
+        //isFixed = isFixed ? false : true;
+        isFixed = !isFixed;
     }
 }

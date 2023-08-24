@@ -7,31 +7,30 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject spawnPoint;
-    public GameObject carParkObj;
-    private CarPark carParkScr;
-
     private GameObject currentCar;
     public GameObject carCamera;
     public GameObject UI;
 
+    public GameObject[] carList;
+    private int lastCarId = 0; 
+
     void Start(){
         Application.targetFrameRate = 120;
 
-        carParkScr = carParkObj.GetComponent<CarPark>();
-        currentCar = carParkScr.carList[0];
+        currentCar = carList[0];
         spawnCarFromCarPark(0);
     }
 
     public void ChangeCar(){
         Destroy(currentCar);
         
-        int carId = (carParkScr.carList.Length == carParkScr.lastCarId + 1) ? carParkScr.lastCarId = 0 : ++carParkScr.lastCarId;
+        int carId = (carList.Length == lastCarId + 1) ? lastCarId = 0 : ++lastCarId;
 
         spawnCarFromCarPark(carId);
     }
 
     public void spawnCarFromCarPark(int carId){
-        currentCar = Instantiate(carParkScr.carList[carId], spawnPoint.transform.position, Quaternion.identity);
+        currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
         
         Follow followScript = carCamera.GetComponent<Follow>();
         followScript.Target = currentCar;

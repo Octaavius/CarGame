@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 152411332}
   - component: {fileID: 152411331}
   - component: {fileID: 152411333}
+  - component: {fileID: 152411334}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -155,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2057596067}
   carCamera: {fileID: 1659938790}
-  UI: {fileID: 8452237823915152112}
+  UI: {fileID: 0}
   carList:
   - {fileID: 4092021022119377358, guid: a5007d02c3b348d469480a379a9e28c1, type: 3}
   - {fileID: 5200462671239578038, guid: 69d4291d722ed2f4b819650d548b645b, type: 3}
@@ -191,6 +192,19 @@ MonoBehaviour:
   mapNames:
   - FirstMap
   - ForestMap
+--- !u!114 &152411334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152411330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec40eaffe462194d985c4e17453c4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectId: 
 --- !u!1 &274088579
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +415,7 @@ LightingSettings:
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 1
   m_RealtimeEnvironmentLighting: 1
@@ -597,18 +611,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 152411331}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: spawnCarFromCarPark
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &924683906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +754,8 @@ GameObject:
   - component: {fileID: 1659938792}
   - component: {fileID: 1659938795}
   - component: {fileID: 1659938796}
+  - component: {fileID: 1659938797}
+  - component: {fileID: 1659938798}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -866,6 +870,39 @@ MonoBehaviour:
   moveSpeed: 100
   Target: {fileID: 0}
   distance: 4
+--- !u!114 &1659938797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659938790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec40eaffe462194d985c4e17453c4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectId: 
+--- !u!114 &1659938798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659938790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ca348a5417f144993974aa51792fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  distance: 5
+  xSpeed: 120
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 0.5
+  distanceMax: 15
 --- !u!1 &1870621068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1162,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2888,18 +2925,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CarScript, Assembly-CSharp
-        m_MethodName: TurnOnReverse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1659938795}
         m_TargetAssemblyTypeName: Follow, Assembly-CSharp
         m_MethodName: changeModeTo2
@@ -3123,18 +3148,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CarScript, Assembly-CSharp
-        m_MethodName: TurnOnDrive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1659938795}
         m_TargetAssemblyTypeName: Follow, Assembly-CSharp
         m_MethodName: changeModeTo1

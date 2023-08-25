@@ -20,7 +20,7 @@ public class Follow : MonoBehaviour
     void Start(){
         TargetCopy = new GameObject();
         cameraPosition = new GameObject().transform;
-
+        
         Pos1 = Target.transform.Find("Pos1");
         Pos2 = Target.transform.Find("Pos2");
         cameraPosition.position = Pos1.position;
@@ -28,6 +28,10 @@ public class Follow : MonoBehaviour
 
     void FixedUpdate()
     {   
+        if(TargetCopy == null){
+            cameraPosition = new GameObject().transform;
+            TargetCopy = new GameObject();
+        }
         TargetCopy.transform.position = Target.transform.position + offset;
 
         this.transform.LookAt(TargetCopy.transform.position);

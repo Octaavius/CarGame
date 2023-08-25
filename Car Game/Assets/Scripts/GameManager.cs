@@ -9,13 +9,20 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint;
     private GameObject currentCar;
     public GameObject carCamera;
-    public GameObject UI;
+    
+    private string sceneName; 
+    
+    [SerializeField]
+    private GameObject UI;
 
     public GameObject[] carList;
     private int lastCarId = 0; 
 
-    void Start(){
+    void Awake(){
         Application.targetFrameRate = 120;
+        UI = GameObject.Find("UI");
+        carCamera = GameObject.Find("Camera");
+        sceneName = SceneManager.GetActiveScene().name;
 
         currentCar = carList[0];
         spawnCarFromCarPark(0);
@@ -29,9 +36,20 @@ public class GameManager : MonoBehaviour
         spawnCarFromCarPark(carId);
     }
 
+    void FixedUpdate(){
+        if(sceneName != SceneManager.GetActiveScene().name){
+            sceneName = SceneManager.GetActiveScene().name;
+            
+            currentCar = carList[0];
+            spawnPoint = GameObject.Find("SpawnPoint");
+            spawnCarFromCarPark(0);
+        }
+    }
+
     public void spawnCarFromCarPark(int carId){
         currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
-        
+        Debug.Log("Instantiated");
+
         Follow followScript = carCamera.GetComponent<Follow>();
         followScript.Target = currentCar;
         followScript.setCameraPosition(currentCar.transform.Find("Pos1"), currentCar.transform.Find("Pos2"));  
@@ -39,9 +57,14 @@ public class GameManager : MonoBehaviour
         PhoneCameraRotate phoneCameraScript = carCamera.GetComponent<PhoneCameraRotate>();
         phoneCameraScript.Target = currentCar.transform;
 
+        FreeCamera freeCameraScr = carCamera.GetComponent<FreeCamera>();
+        freeCameraScr.Target = currentCar.transform;
+
+        Debug.Log("tachometr set");
         Tachometer tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<Tachometer>();
         tachometerScr.carScript = currentCar.GetComponent<CarScript>();
 
+        Debug.Log("speedometr set");
         Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
         speedometerScr.car = currentCar;
 

@@ -683,7 +683,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1287936445}
         m_TargetAssemblyTypeName: MenuCanvasManager, Assembly-CSharp
-        m_MethodName: LoadSimpleGameMode
+        m_MethodName: LoadSingle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1003,7 +1003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1287936445}
         m_TargetAssemblyTypeName: MenuCanvasManager, Assembly-CSharp
-        m_MethodName: MultiMenuLoad
+        m_MethodName: LoadMulti
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

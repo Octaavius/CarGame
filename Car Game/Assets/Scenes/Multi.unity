@@ -893,7 +893,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717931361}
+      - m_Target: {fileID: 1287936450}
         m_TargetAssemblyTypeName: MultiPlayerManager, Assembly-CSharp
         m_MethodName: CreateRoom
         m_Mode: 1
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717931361}
+      - m_Target: {fileID: 1287936450}
         m_TargetAssemblyTypeName: MultiPlayerManager, Assembly-CSharp
         m_MethodName: JoinRoom
         m_Mode: 1
@@ -1086,7 +1086,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 717931362}
-  - component: {fileID: 717931361}
   m_Layer: 0
   m_Name: MultiPlayerManager
   m_TagString: Untagged
@@ -1094,20 +1093,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &717931361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717931360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 255b57a3720b0044a8fb4f2ed1b58b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  createInput: {fileID: 34475833}
-  joinInput: {fileID: 218359790}
 --- !u!4 &717931362
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,7 +1200,7 @@ GameObject:
   - component: {fileID: 1287936448}
   - component: {fileID: 1287936447}
   - component: {fileID: 1287936446}
-  - component: {fileID: 1287936445}
+  - component: {fileID: 1287936450}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1223,18 +1208,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1287936445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287936444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ac5546fc5b51c459f38b68a66b050d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1287936446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1296,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1287936450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287936444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255b57a3720b0044a8fb4f2ed1b58b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createInput: {fileID: 34475833}
+  joinInput: {fileID: 218359790}
 --- !u!1 &1301187435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1474,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1287936445}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCanvasManager, Assembly-CSharp
         m_MethodName: LoadSimpleGameMode
         m_Mode: 1

@@ -11,6 +11,11 @@ public class MultInher : CarScript
 
     private GameObject UI;
 
+    private Vector3 speed;
+
+    private Quaternion previousRotation;
+    private float turnSpeed;
+
     public GameObject spawnPoint;
 
     void Awake(){
@@ -50,9 +55,10 @@ public class MultInher : CarScript
     }
 
     private void Start(){
-        PhotonNetwork.SendRate = 30;
+        // PhotonNetwork.SendRate = 20;
 
-        PhotonNetwork.SerializationRate = 30;
+        // PhotonNetwork.SerializationRate = 20;
+        previousRotation = transform.rotation;
     }
 
     public void ResetPosition(){
@@ -70,5 +76,18 @@ public class MultInher : CarScript
         if(view.IsMine){
             base.Update();
         }
+    }
+
+    void LateUpdate(){
+        if(!view.IsMine) return;
+        Quaternion rotationChange = transform.rotation * Quaternion.Inverse(previousRotation);
+        float angle;
+        Vector3 axis;
+        rotationChange.ToAngleAxis(out angle, out axis);
+        turnSpeed = angle / Time.deltaTime;
+        previousRotation = transform.rotation;
+
+        speed = GetComponent<Rigidbody>().velocity;
+        GetComponent<PhotonTransformViewClassic>().SetSynchronizedValues(speed, turnSpeed);
     }
 }

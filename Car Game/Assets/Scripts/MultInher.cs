@@ -90,4 +90,5 @@ public class MultInher : CarScript
         speed = GetComponent<Rigidbody>().velocity;
         GetComponent<PhotonTransformViewClassic>().SetSynchronizedValues(speed, turnSpeed);
     }
+
 }

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject spawnPoint;
+    
+    [SerializeField]
     private GameObject currentCar;
     public GameObject carCamera;
     
@@ -24,8 +26,8 @@ public class GameManager : MonoBehaviour
         carCamera = GameObject.Find("Camera");
         sceneName = SceneManager.GetActiveScene().name;
 
-        currentCar = carList[0];
         spawnCarFromCarPark(0);
+        Debug.Log("Game manager is being awaked");
     }
 
     public void ChangeCar(){
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
         if(sceneName != SceneManager.GetActiveScene().name){
             sceneName = SceneManager.GetActiveScene().name;
             
-            currentCar = carList[0];
+            lastCarId = 0;
             spawnPoint = GameObject.Find("SpawnPoint");
             spawnCarFromCarPark(0);
         }

@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multi.unity
     guid: ad090aa5bdd7ed149addaf4404d4b2f4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ForestMap.unity
     guid: 856891098a1ae03428771d511803b50f
   m_configObjects: {}

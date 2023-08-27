@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     public string[] mapNames;
-    private int currentMap = 1;
+    public int currentMap = 0;
 
-    public void LoadScene(string sceneName){
-        SceneManager.LoadScene(sceneName);
+    public void LoadScene(){
+        SceneManager.LoadScene(mapNames[currentMap]);
     }
 
     public void LoadNextScene(){
@@ -19,11 +19,11 @@ public class SceneManagerScript : MonoBehaviour
             currentMap = 0;
     }
 
-    public void LoadSimpleGameMode(){
-        SceneManager.LoadScene("S1");
-    }
-
     public void MultiMenuLoad(){
         SceneManager.LoadScene("LoadingMultiplayerScene");
+    }
+
+    public void LoadMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }

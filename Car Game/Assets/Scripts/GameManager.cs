@@ -18,15 +18,12 @@ public class GameManager : MonoBehaviour
     private GameObject UI;
 
     public GameObject[] carList;
-    private int lastCarId = 0; 
+    public int lastCarId = 0; 
 
     void Awake(){
         Application.targetFrameRate = 120;
-        UI = GameObject.Find("UI");
-        carCamera = GameObject.Find("Camera");
+        
         sceneName = SceneManager.GetActiveScene().name;
-
-        spawnCarFromCarPark(0);
         Debug.Log("Game manager is being awaked");
     }
 
@@ -41,10 +38,16 @@ public class GameManager : MonoBehaviour
     void FixedUpdate(){
         if(sceneName != SceneManager.GetActiveScene().name){
             sceneName = SceneManager.GetActiveScene().name;
-            
-            lastCarId = 0;
-            spawnPoint = GameObject.Find("SpawnPoint");
-            spawnCarFromCarPark(0);
+            if(sceneName != "Menu"){
+                UI = GameObject.Find("UI");
+                ShowUI();
+                carCamera = GameObject.Find("Camera");            
+                if(carCamera)
+                    carCamera.GetComponent<Camera>().enabled = true;
+                
+                spawnPoint = GameObject.Find("SpawnPoint");
+                spawnCarFromCarPark(lastCarId);
+            }
         }
     }
 
@@ -72,9 +75,11 @@ public class GameManager : MonoBehaviour
 
         Button reverseButton = UI.transform.Find("Canvas/GearButtons/ReverseButton").GetComponent<Button>();
         reverseButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnReverse());
+        reverseButton.onClick.AddListener(() => followScript.changeModeTo2());
 
         Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
         driveButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnDrive());
+        driveButton.onClick.AddListener(() => followScript.changeModeTo1());
     }
 
     public void resetPosition(){
@@ -85,5 +90,13 @@ public class GameManager : MonoBehaviour
     
     public void GoToMenu(){
         SceneManager.LoadScene("Menu");
+    }
+
+    public void HideUI(){
+        UI.transform.Find("Canvas").gameObject.SetActive(false);
+    }
+
+    public void ShowUI(){
+        UI.transform.Find("Canvas").gameObject.SetActive(true);
     }
 }

@@ -24,9 +24,11 @@ public class Follow : MonoBehaviour
         cameraPosition.name = "CameraPosition";
 
         
-        Pos1 = Target.transform.Find("Pos1");
-        Pos2 = Target.transform.Find("Pos2");
-        cameraPosition.position = Pos1.position;
+        if(Target){
+            Pos1 = Target.transform.Find("Pos1");
+            Pos2 = Target.transform.Find("Pos2");
+            cameraPosition.position = Pos1.position;
+        }
     }
 
     void FixedUpdate()

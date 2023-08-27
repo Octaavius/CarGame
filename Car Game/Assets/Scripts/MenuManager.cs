@@ -35,6 +35,9 @@ public class MenuManager : MonoBehaviour
         button = secondMenu.transform.Find("Map button/Right button").GetComponent<Button>();
         button.onClick.AddListener(() => secondMenu.GetComponent<ChoiceScript>().nextMap());
         this.transform.Find("FirstMenu").gameObject.SetActive(false);
+
+        button = secondMenu.transform.Find("Play button").GetComponent<Button>();
+        button.onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<SceneManagerScript>().LoadScene());
     }
 
 }

@@ -9,11 +9,12 @@ public class ChoiceScript : MonoBehaviour
 {   
     public Transform carText;
     public Transform mapText;
-    public GameObject gameManager;
+    private GameObject gameManager;
     private SceneManagerScript sceneManagerScript;
     private GameManager gameManagerScript;
 
     private void Awake(){
+        gameManager = GameObject.Find("GameManager");
         sceneManagerScript = gameManager.GetComponent<SceneManagerScript>();
         gameManagerScript = gameManager.GetComponent<GameManager>();
     }

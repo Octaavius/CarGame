@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject spawnPoint;
+    private GameObject spawnPoint;
     
-    [SerializeField]
     private GameObject currentCar;
-    public GameObject carCamera;
+    private GameObject carCamera;
     
     private string sceneName; 
-    
-    [SerializeField]
     private GameObject UI;
 
+    [HideInInspector]
     public GameObject[] carList;
+    [HideInInspector]
     public int lastCarId = 0; 
 
     void Awake(){

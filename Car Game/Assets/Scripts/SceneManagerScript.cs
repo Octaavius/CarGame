@@ -13,10 +13,12 @@ public class SceneManagerScript : MonoBehaviour
     }
 
     public void LoadNextScene(){
-        SceneManager.LoadScene(mapNames[currentMap++]);
+        currentMap = (currentMap == mapNames.Length - 1) ? 0 : currentMap + 1; 
+        // currentMap++;
+        // if(currentMap == mapNames.Length)
+        //     currentMap = 0;
+        SceneManager.LoadScene(mapNames[currentMap]);
         
-        if(currentMap == mapNames.Length)
-            currentMap = 0;
     }
 
     public void MultiMenuLoad(){

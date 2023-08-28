@@ -39,7 +39,8 @@ public class Follow : MonoBehaviour
             cameraPosition = new GameObject().transform;
             cameraPosition.name = "CameraPosition";
         }
-        TargetCopy.transform.position = Target.transform.position + offset;
+        if(Target)
+            TargetCopy.transform.position = Target.transform.position + offset;
 
         this.transform.LookAt(TargetCopy.transform.position);
 		float car_Move = Mathf.Abs(Vector3.Distance(this.transform.position, cameraPosition.position) * speed);

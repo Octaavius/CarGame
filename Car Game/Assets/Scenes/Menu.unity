@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 211963858}
   - component: {fileID: 211963857}
   - component: {fileID: 211963856}
+  - component: {fileID: 211963859}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -630,6 +631,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211963859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211963855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec40eaffe462194d985c4e17453c4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectId: 
 --- !u!1 &266719112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,7 +6534,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carText: {fileID: 1674934999}
   mapText: {fileID: 1691835890}
-  gameManager: {fileID: 1643799246}
 --- !u!1 &2122112145
 GameObject:
   m_ObjectHideFlags: 0

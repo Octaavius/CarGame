@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    private GameObject secondMenu;
+    public GameObject firstMenu;
+    public GameObject secondMenu;
+    public GameObject secondMenuForMultiplayer;
 
     public void Awake(){
-        secondMenu = this.transform.Find("SecondMenu").gameObject;    
+        //secondMenu = this.transform.Find("SecondMenu").gameObject;
     }
 
     public void LoadSingle(){
@@ -21,23 +23,23 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("LoadingMultiplayerScene");
     }
 
-    public void SwitchMenus(){
+    public void SwitchMenuToSecondMenu(){
         secondMenu.SetActive(true);
-        Button button = secondMenu.transform.Find("Car button/Left button").GetComponent<Button>();
-        button.onClick.AddListener(() => secondMenu.GetComponent<ChoiceScript>().prevCar());
-
-        button = secondMenu.transform.Find("Car button/Right button").GetComponent<Button>();
-        button.onClick.AddListener(() => secondMenu.GetComponent<ChoiceScript>().nextCar());
-        
-        button = secondMenu.transform.Find("Map button/Left button").GetComponent<Button>();
-        button.onClick.AddListener(() => secondMenu.GetComponent<ChoiceScript>().prevMap());
-
-        button = secondMenu.transform.Find("Map button/Right button").GetComponent<Button>();
-        button.onClick.AddListener(() => secondMenu.GetComponent<ChoiceScript>().nextMap());
-        this.transform.Find("FirstMenu").gameObject.SetActive(false);
-
-        button = secondMenu.transform.Find("Play button").GetComponent<Button>();
-        button.onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<SceneManagerScript>().LoadScene());
+        firstMenu.SetActive(false);
     }
 
+    public void SwitchMenuToSecondMenuForMultiplayer(){
+        secondMenuForMultiplayer.SetActive(true);
+        firstMenu.SetActive(false);
+    }
+
+    public void returnToMenuFromSecondMenu(){
+        firstMenu.SetActive(true);
+        secondMenu.SetActive(false);
+    }
+    
+    public void returnToMenuFromSecondMenuForMultiplayer(){
+        firstMenu.SetActive(true);
+        secondMenuForMultiplayer.SetActive(false);
+    }
 }

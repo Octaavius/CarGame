@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour
     public void resetPosition(){
         Rigidbody rb = currentCar.GetComponent<Rigidbody>(); 
         rb.velocity = Vector3.zero;
-        currentCar.transform.position = spawnPoint.transform.position; 
+        currentCar.transform.position = spawnPoint.transform.position;
+        currentCar.transform.eulerAngles = new Vector3(0f, currentCar.transform.eulerAngles.y, 0f);
     } 
     
     public void GoToMenu(){

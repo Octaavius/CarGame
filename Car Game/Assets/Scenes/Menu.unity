@@ -447,7 +447,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 89576199}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2109046424}
+        m_TargetAssemblyTypeName: ChoiceScript, Assembly-CSharp
+        m_MethodName: nextCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &89576199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3740,7 +3752,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1069391465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2109046424}
+        m_TargetAssemblyTypeName: ChoiceScript, Assembly-CSharp
+        m_MethodName: nextMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1069391465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6239,7 +6263,7 @@ MonoBehaviour:
   - First Map
   - Forest Map
   - School Drift
-  currentMap: 1
+  currentMap: 0
 --- !u!114 &1643799249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6424,7 +6448,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Forest Map
+  m_Text: FIrst Map
 --- !u!222 &1691835892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6709,7 +6733,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1772764903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2109046424}
+        m_TargetAssemblyTypeName: ChoiceScript, Assembly-CSharp
+        m_MethodName: prevMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772764903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6830,7 +6866,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1787672953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1787672953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9588,7 +9636,7 @@ GameObject:
   - component: {fileID: 7093159499993746380}
   - component: {fileID: 5008303031113594675}
   m_Layer: 0
-  m_Name: porshe 911
+  m_Name: porshe 911 for menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2549,8 +2549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255b57a3720b0044a8fb4f2ed1b58b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createInput: {fileID: 0}
-  joinInput: {fileID: 0}
+  createInput: {fileID: 214508626}
+  joinInput: {fileID: 984832548}
 --- !u!4 &717931362
 Transform:
   m_ObjectHideFlags: 0
@@ -3816,7 +3816,7 @@ GameObject:
   - component: {fileID: 1140425713}
   - component: {fileID: 1140425712}
   m_Layer: 5
-  m_Name: 'ConnectButton '
+  m_Name: 'CreatetButton '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3887,7 +3887,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1476158799}
+      - m_Target: {fileID: 717931361}
         m_TargetAssemblyTypeName: MultiPlayerManager, Assembly-CSharp
         m_MethodName: CreateRoom
         m_Mode: 1
@@ -5809,11 +5809,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1476158794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 255b57a3720b0044a8fb4f2ed1b58b55, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fcbbb409f76aa447985b03f6a508615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createInput: {fileID: 214508626}
-  joinInput: {fileID: 984832548}
+  joinButtons:
+  - {fileID: 1140425712}
+  - {fileID: 2050680598}
 --- !u!1 &1509009426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6229,7 +6230,7 @@ GameObject:
   - component: {fileID: 1643799247}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7557,7 +7558,7 @@ GameObject:
   - component: {fileID: 2050680599}
   - component: {fileID: 2050680598}
   m_Layer: 5
-  m_Name: JoinButton
+  m_Name: ConnectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7628,7 +7629,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1476158799}
+      - m_Target: {fileID: 717931361}
         m_TargetAssemblyTypeName: MultiPlayerManager, Assembly-CSharp
         m_MethodName: JoinRoom
         m_Mode: 1

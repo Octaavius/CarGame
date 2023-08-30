@@ -69,6 +69,7 @@ public class MultInher : CarScript
 
     public void GoToMenu(){
         PhotonNetwork.LeaveRoom();
+        GameObject.FindGameObjectWithTag("gameManager").SetActive(true);
         SceneManager.LoadScene("Menu");
     }
 
@@ -78,17 +79,17 @@ public class MultInher : CarScript
         }
     }
 
-    void LateUpdate(){
-        if(!view.IsMine) return;
-        Quaternion rotationChange = transform.rotation * Quaternion.Inverse(previousRotation);
-        float angle;
-        Vector3 axis;
-        rotationChange.ToAngleAxis(out angle, out axis);
-        turnSpeed = angle / Time.deltaTime;
-        previousRotation = transform.rotation;
+    // void LateUpdate(){
+    //     if(!view.IsMine) return;
+    //     Quaternion rotationChange = transform.rotation * Quaternion.Inverse(previousRotation);
+    //     float angle;
+    //     Vector3 axis;
+    //     rotationChange.ToAngleAxis(out angle, out axis);
+    //     turnSpeed = angle / Time.deltaTime;
+    //     previousRotation = transform.rotation;
 
-        speed = GetComponent<Rigidbody>().velocity;
-        GetComponent<PhotonTransformViewClassic>().SetSynchronizedValues(speed, turnSpeed);
-    }
+    //     speed = GetComponent<Rigidbody>().velocity;
+    //     GetComponent<PhotonTransformViewClassic>().SetSynchronizedValues(speed, turnSpeed);
+    // }
 
 }

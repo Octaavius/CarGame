@@ -15,6 +15,7 @@ TagManager:
   - MenuButton
   - backLights
   - stearingWheel
+  - gameManager
   layers:
   - Default
   - TransparentFX

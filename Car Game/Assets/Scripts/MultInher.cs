@@ -69,7 +69,6 @@ public class MultInher : CarScript
 
     public void GoToMenu(){
         PhotonNetwork.LeaveRoom();
-        GameObject.FindGameObjectWithTag("gameManager").SetActive(true);
         SceneManager.LoadScene("Menu");
     }
 

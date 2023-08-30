@@ -11,13 +11,14 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
     public InputField joinInput;
     
     public void CreateRoom(){
-        GameObject.FindGameObjectWithTag("gameManager").SetActive(false);
+        Destroy(GameObject.FindGameObjectWithTag("gameManager"));
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         PhotonNetwork.CreateRoom(createInput.text, roomOptions);
     }
 
     public void JoinRoom(){
+        Destroy(GameObject.FindGameObjectWithTag("gameManager"));
         PhotonNetwork.JoinRoom(joinInput.text);
     }
 

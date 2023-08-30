@@ -12,7 +12,8 @@ public class MenuManager : MonoBehaviour
     public GameObject secondMenuForMultiplayer;
 
     public void Awake(){
-        //secondMenu = this.transform.Find("SecondMenu").gameObject;
+        Button playButton = secondMenu.transform.Find("Play button").GetComponent<Button>();
+        playButton.onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<SceneManagerScript>().LoadScene());
     }
 
     public void LoadSingle(){

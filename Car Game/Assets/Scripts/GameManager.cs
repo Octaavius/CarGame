@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 120;
         
         sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log("Game manager is being awaked");
     }
 
     public void ChangeCar(){
@@ -52,7 +51,6 @@ public class GameManager : MonoBehaviour
 
     public void spawnCarFromCarPark(int carId){
         currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
-        Debug.Log("Instantiated");
 
         Follow followScript = carCamera.GetComponent<Follow>();
         followScript.Target = currentCar;
@@ -60,15 +58,15 @@ public class GameManager : MonoBehaviour
         
         PhoneCameraRotate phoneCameraScript = carCamera.GetComponent<PhoneCameraRotate>();
         phoneCameraScript.Target = currentCar.transform;
+        Button cameraButton = UI.transform.Find("Canvas/otherButtons/SwitchCamera").GetComponent<Button>();
+        cameraButton.onClick.AddListener(() => this.enableFreeCamera());
 
         FreeCamera freeCameraScr = carCamera.GetComponent<FreeCamera>();
         freeCameraScr.Target = currentCar.transform;
 
-        Debug.Log("tachometr set");
         Tachometer tachometerScr = UI.transform.Find("Canvas/meters/Tachometer").GetComponent<Tachometer>();
         tachometerScr.carScript = currentCar.GetComponent<CarScript>();
 
-        Debug.Log("speedometr set");
         Speedometer speedometerScr = UI.transform.Find("Canvas/meters/Speedometer").GetComponent<Speedometer>();
         speedometerScr.car = currentCar;
 
@@ -88,6 +86,12 @@ public class GameManager : MonoBehaviour
         currentCar.transform.eulerAngles = new Vector3(0f, currentCar.transform.eulerAngles.y, 0f);
     } 
     
+    public void enableFreeCamera(){
+        PhoneCameraRotate phoneCameraScript = carCamera.GetComponent<PhoneCameraRotate>();
+        Debug.Log("asdasd");
+        phoneCameraScript.enabled = !phoneCameraScript.enabled;
+    }
+
     public void GoToMenu(){
         SceneManager.LoadScene("Menu");
     }

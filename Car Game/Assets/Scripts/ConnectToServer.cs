@@ -8,13 +8,13 @@ using UnityEngine.SceneManagement;
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
-    void Start()
+    public void tryConnectPhoton()
     {
         PhotonNetwork.ConnectUsingSettings();
         OnConnectedToMaster();
     }
 
     public override void OnConnectedToMaster(){
-        SceneManager.LoadScene("Multi");
+        GetComponent<MenuManager>().SwitchMenuToSecondMenuForMultiplayer();
     }
 }

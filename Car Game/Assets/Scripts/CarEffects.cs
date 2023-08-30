@@ -6,10 +6,14 @@ public class CarEffrcts : MonoBehaviour
 {
     public WheelCollider CorrespondingCollider;
     public GameObject skidMarkPrefab;
+    public ParticleSystem smokePrefab;
+
+    private bool wasStart = false;
 
     private void Start()
     {
         skidMarkPrefab.SetActive(false);
+        smokePrefab.Stop();
     }
 
     private void Update()
@@ -19,11 +23,17 @@ public class CarEffrcts : MonoBehaviour
 
         if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) > 0.6f)
         {
-            skidMarkPrefab.SetActive(true);
+            if(!wasStart){
+                skidMarkPrefab.SetActive(true);
+                smokePrefab.Play();
+                wasStart = true;
+            }
         }
         else if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) <= 0.55f)
         {
             skidMarkPrefab.SetActive(false);
+            smokePrefab.Stop();
+            wasStart = false;
         }
     }
 }

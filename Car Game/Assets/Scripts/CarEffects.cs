@@ -14,27 +14,14 @@ public class CarEffrcts : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit hit;
-        Vector3 colliderCenterPoint = CorrespondingCollider.transform.TransformPoint(CorrespondingCollider.center);
-
-        // if (Physics.Raycast(colliderCenterPoint, -CorrespondingCollider.transform.up, out hit,
-        //                     CorrespondingCollider.suspensionDistance + CorrespondingCollider.radius))
-        // {
-        //     transform.position = hit.point + (CorrespondingCollider.transform.up * CorrespondingCollider.radius);
-        // }
-        // else
-        // {
-        //     transform.position = colliderCenterPoint - (CorrespondingCollider.transform.up * CorrespondingCollider.suspensionDistance);
-        // }
-
         WheelHit correspondingGroundHit;
         CorrespondingCollider.GetGroundHit(out correspondingGroundHit);
 
-        if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) > 0.8f)
+        if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) > 0.6f)
         {
             skidMarkPrefab.SetActive(true);
         }
-        else if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) <= 0.75f)
+        else if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) <= 0.55f)
         {
             skidMarkPrefab.SetActive(false);
         }

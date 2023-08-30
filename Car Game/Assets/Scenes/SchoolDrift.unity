@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -108180,6 +108180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CorrespondingCollider: {fileID: 1119796742}
   skidMarkPrefab: {fileID: 1240994612}
+  smokePrefab: {fileID: 0}
 --- !u!4 &1195350060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4036211704433368, guid: 73b622173606c244a8cc9fd46a2802cd, type: 3}
@@ -110924,6 +110925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CorrespondingCollider: {fileID: 1722920080}
   skidMarkPrefab: {fileID: 1359651178}
+  smokePrefab: {fileID: 0}
 --- !u!1 &1347244075
 GameObject:
   m_ObjectHideFlags: 0

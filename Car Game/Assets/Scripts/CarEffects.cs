@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarEffrcts : MonoBehaviour
+public class CarEffects : MonoBehaviour
 {
     public WheelCollider CorrespondingCollider;
     public GameObject skidMarkPrefab;

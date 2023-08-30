@@ -9,6 +9,7 @@ public class ChoiceScript : MonoBehaviour
 {   
     public Transform carText;
     public Transform mapText;
+    public MenuManager menuScript;
     private GameObject gameManager;
     private SceneManagerScript sceneManagerScript;
     private GameManager gameManagerScript;
@@ -17,6 +18,7 @@ public class ChoiceScript : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         sceneManagerScript = gameManager.GetComponent<SceneManagerScript>();
         gameManagerScript = gameManager.GetComponent<GameManager>();
+        menuScript = GameObject.Find("Menu").GetComponent<MenuManager>();
     }
 
     public void nextCar(){
@@ -25,6 +27,9 @@ public class ChoiceScript : MonoBehaviour
         if(gameManagerScript.lastCarId == gameManagerScript.carList.Length){
             gameManagerScript.lastCarId = 0;
         }
+
+        menuScript.carForSecondMenu = gameManagerScript.carList[gameManagerScript.lastCarId];
+
         carText.GetComponent<Text>().text = gameManagerScript.carList[gameManagerScript.lastCarId].name;
     }
     public void prevCar(){
@@ -33,6 +38,9 @@ public class ChoiceScript : MonoBehaviour
         if(gameManagerScript.lastCarId == -1){
             gameManagerScript.lastCarId = gameManagerScript.carList.Length - 1;
         }
+
+        menuScript.carForSecondMenu = gameManagerScript.carList[gameManagerScript.lastCarId];
+
         carText.GetComponent<Text>().text = gameManagerScript.carList[gameManagerScript.lastCarId].name;
     }
     public void nextMap(){

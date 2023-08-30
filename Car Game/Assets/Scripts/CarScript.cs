@@ -38,7 +38,10 @@ public class CarScript : MonoBehaviour
     
     public GameObject[] wheelMeshes = new GameObject[4];
 
-    public  int gear = 1;
+    public bool steeringAssistant;
+
+    [HideInInspector]
+    public int gear = 1;
 
     private GameObject backLights = null;
     private GameObject stearingWheel = null;
@@ -102,14 +105,20 @@ public class CarScript : MonoBehaviour
     }
 
     void TurnUpdate(){
-        float speed = Vector3.Magnitude(rb.velocity)*3;
+        float speed = Vector3.Magnitude(rb.velocity) * 3 * 1.6f;
         
-        if (speed < 40) {
-            angle = maxAngle;
-        } else if (speed < 75){
-            angle = 80 - speed;
+        if(steeringAssistant){
+            if (speed < 20) {
+                angle = maxAngle;
+            } else if (speed < 40){
+                angle = 40 - speed/2;
+            } else if (speed < 55){
+                angle = 60 - speed;
+            } else {
+                angle = 5;
+            }
         } else {
-            angle = 5;
+            angle = maxAngle;
         }
 
         float curAngle = horizontalInput * angle;
@@ -215,4 +224,9 @@ public class CarScript : MonoBehaviour
     public void TurnOnDrive(){
         gear = 1;
     }
+
+    public void DriftUpdate(){
+        float driftValue = Vector3.Dot(rb.velocity, transform.forward);
+        float driftAngle = Mathf.Acos(driftValue) * Mathf.Rad2Deg;
+    } 
 }

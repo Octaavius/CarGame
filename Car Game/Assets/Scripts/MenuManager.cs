@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
     public GameObject firstMenu;
     public GameObject secondMenu;
     public GameObject secondMenuForMultiplayer;
+    public GameObject porsheForMenu;
+    public GameObject carForSecondMenu;
 
     public void Awake(){
         Button playButton = secondMenu.transform.Find("Play button").GetComponent<Button>();
@@ -25,22 +27,36 @@ public class MenuManager : MonoBehaviour
     }
 
     public void SwitchMenuToSecondMenu(){
-        secondMenu.SetActive(true);
         firstMenu.SetActive(false);
+        porsheForMenu.SetActive(false);
+        carForSecondMenu.SetActive(true);
+        secondMenu.SetActive(true);
     }
 
     public void SwitchMenuToSecondMenuForMultiplayer(){
-        secondMenuForMultiplayer.SetActive(true);
         firstMenu.SetActive(false);
+        porsheForMenu.SetActive(false);
+        carForSecondMenu.SetActive(true);
+        secondMenuForMultiplayer.SetActive(true);
     }
 
     public void returnToMenuFromSecondMenu(){
-        firstMenu.SetActive(true);
         secondMenu.SetActive(false);
+        carForSecondMenu.SetActive(false);
+        porsheForMenu.SetActive(true);
+        firstMenu.SetActive(true);
     }
     
     public void returnToMenuFromSecondMenuForMultiplayer(){
-        firstMenu.SetActive(true);
         secondMenuForMultiplayer.SetActive(false);
+        carForSecondMenu.SetActive(false);
+        porsheForMenu.SetActive(true);
+        firstMenu.SetActive(true);
     }
+    // public void showCarInMenu(){
+    //     carForSecondMenu.SetActive(true);
+    // }
+    // public void hideCarInMenu(){
+    //     carForSecondMenu.SetActive(false);
+    // }
 }

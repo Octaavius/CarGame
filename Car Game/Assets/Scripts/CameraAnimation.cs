@@ -5,30 +5,40 @@ using UnityEngine;
 public class CameraAnimation : MonoBehaviour
 {
     private Animator animator;
-    private GameManager gm;
+    [SerializeField]
+    private MenuManager menuScript;
 
-    public Vector3 pos;
-    public Quaternion rot;
+    //public GameObject[] carList;
 
-    public GameObject[] carList;
+    private GameObject currentCar = null;
 
-    private GameObject currentCar;
+    public GameObject spawnPoint;
+
+    private bool returnToMenuBool = true;
     
     void Start(){
         animator = GetComponent<Animator>();
-        gm = GameObject.FindWithTag("gameManager").GetComponent<GameManager>();
-        currentCar = GameObject.FindWithTag("Car");
     }
 
     public void ResetValue(){
         animator.ResetTrigger("TrUp");
-        pos = currentCar.transform.position;
-        rot = currentCar.transform.rotation;
-        Destroy(currentCar);
-        currentCar = Instantiate(gm.carList[gm.lastCarId], pos, rot);
+        if(currentCar){
+            Debug.Log(currentCar);
+            Destroy(currentCar);
+            Debug.Log("destrou car");
+        }
+        else{
+            returnToMenuBool = false;
+            Debug.Log(returnToMenuBool);
+        }
+        if(!returnToMenuBool)
+            currentCar = Instantiate(menuScript.carList[menuScript.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
     }
 
-    public void StartAnimation(){
-        animator.SetTrigger("TrUp");
+    public void returnToMenu(){
+        returnToMenuBool = true;
     }
+    // public void StartAnimation(){
+    //     animator.SetTrigger("TrUp");
+    // }
 }

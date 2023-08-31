@@ -7,12 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Menus")]
     public GameObject firstMenu;
     public GameObject secondMenu;
     public GameObject secondMenuForMultiplayer;
+    
+    [Header("Car selection settings")]
+    public GameObject[] carList;
     public GameObject porsheForMenu;
-    public GameObject carForSecondMenu;
-    public CameraAnimation animator;
+    public Animator animator;
+    public GameObject spawnPoint;
+    private GameObject currentCar = null;
+    
+    [HideInInspector]
+    public int lastCarId = 0;
 
     public void Awake(){
         Button playButton = secondMenu.transform.Find("Play button").GetComponent<Button>();
@@ -29,31 +37,37 @@ public class MenuManager : MonoBehaviour
 
     public void SwitchMenuToSecondMenu(){
         firstMenu.SetActive(false);
-        //porsheForMenu.SetActive(false);
-        //carForSecondMenu.SetActive(true);
-        animator.StartAnimation();
+        porsheForMenu.SetActive(false);
+        StartAnimation();
         secondMenu.SetActive(true);
     }
 
     public void SwitchMenuToSecondMenuForMultiplayer(){
         firstMenu.SetActive(false);
         porsheForMenu.SetActive(false);
-        carForSecondMenu.SetActive(true);
         secondMenuForMultiplayer.SetActive(true);
     }
 
     public void returnToMenuFromSecondMenu(){
-        secondMenu.SetActive(false);
-        carForSecondMenu.SetActive(false);
+        secondMenu.SetActive(false);;
+        StartAnimation();
         porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
     }
     
     public void returnToMenuFromSecondMenuForMultiplayer(){
-        secondMenuForMultiplayer.SetActive(false);
-        carForSecondMenu.SetActive(false);
+        secondMenuForMultiplayer.SetActive(false);;
         porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
+    }
+    // public void ResetValue(){
+    //     animator.ResetTrigger("TrUp");
+    //     Destroy(currentCar);
+    //     currentCar = Instantiate(carList[lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
+    // }
+
+    public void StartAnimation(){
+        animator.SetTrigger("TrUp");
     }
     // public void showCarInMenu(){
     //     carForSecondMenu.SetActive(true);

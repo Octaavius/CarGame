@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void spawnCarFromCarPark(int carId){
         currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
-        currentCar.GetComponent<CarScript>().enabled = true;
+        //currentCar.GetComponent<CarScript>().enabled = true;
 
         Follow followScript = carCamera.GetComponent<Follow>();
         followScript.Target = currentCar;

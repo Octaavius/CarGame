@@ -28,7 +28,7 @@ public class ChoiceScript : MonoBehaviour
             gameManagerScript.lastCarId = 0;
         }
 
-        menuScript.carForSecondMenu = gameManagerScript.carList[gameManagerScript.lastCarId];
+        menuScript.lastCarId = gameManagerScript.lastCarId;// should be deleted
 
         carText.GetComponent<Text>().text = gameManagerScript.carList[gameManagerScript.lastCarId].name;
     }
@@ -39,7 +39,7 @@ public class ChoiceScript : MonoBehaviour
             gameManagerScript.lastCarId = gameManagerScript.carList.Length - 1;
         }
 
-        menuScript.carForSecondMenu = gameManagerScript.carList[gameManagerScript.lastCarId];
+        menuScript.lastCarId = gameManagerScript.lastCarId;// should be deleted
 
         carText.GetComponent<Text>().text = gameManagerScript.carList[gameManagerScript.lastCarId].name;
     }

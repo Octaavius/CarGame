@@ -16053,7 +16053,7 @@ MonoBehaviour:
   - {fileID: 9101426264724398639}
   - {fileID: 5097935907175802539}
   - {fileID: 8811717498613018772}
-  steeringAssistant: 0
+  steeringAssistant: 1
   gear: 1
 --- !u!1 &6432938373077466757
 GameObject:

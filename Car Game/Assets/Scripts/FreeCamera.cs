@@ -52,7 +52,6 @@ public class FreeCamera : MonoBehaviour
 
         if(Input.GetKeyDown("r")){
             changeCamera();
-            Debug.Log("alskdjalksjd");
         }
 
         if(Target && !isFixed){

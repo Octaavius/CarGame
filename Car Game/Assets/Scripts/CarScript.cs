@@ -46,7 +46,7 @@ public class CarScript : MonoBehaviour
     private GameObject backLights = null;
     private GameObject stearingWheel = null;
 
-    void Awake(){
+    void Start(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
         // wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
         // wheels[2] = GameObject.Find("RL").GetComponent<WheelCollider>();

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private string sceneName; 
     private GameObject UI;
 
-    [HideInInspector]
+    // [HideInInspector]
     public GameObject[] carList;
     [HideInInspector]
     public int lastCarId = 0; 
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void spawnCarFromCarPark(int carId){
         currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
+        currentCar.GetComponent<CarScript>().enabled = false;
 
         Follow followScript = carCamera.GetComponent<Follow>();
         followScript.Target = currentCar;

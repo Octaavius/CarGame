@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     public GameObject secondMenuForMultiplayer;
     public GameObject porsheForMenu;
     public GameObject carForSecondMenu;
+    public CameraAnimation animator;
 
     public void Awake(){
         Button playButton = secondMenu.transform.Find("Play button").GetComponent<Button>();
@@ -28,8 +29,9 @@ public class MenuManager : MonoBehaviour
 
     public void SwitchMenuToSecondMenu(){
         firstMenu.SetActive(false);
-        porsheForMenu.SetActive(false);
-        carForSecondMenu.SetActive(true);
+        //porsheForMenu.SetActive(false);
+        //carForSecondMenu.SetActive(true);
+        animator.StartAnimation();
         secondMenu.SetActive(true);
     }
 

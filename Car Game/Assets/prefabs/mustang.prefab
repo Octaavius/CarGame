@@ -15991,7 +15991,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6192589960624524774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e191d3a2f9d7974f832221cd3a77250, type: 3}
   m_Name: 
@@ -16053,6 +16053,7 @@ MonoBehaviour:
   - {fileID: 9101426264724398639}
   - {fileID: 5097935907175802539}
   - {fileID: 8811717498613018772}
+  steeringAssistant: 0
   gear: 1
 --- !u!1 &6432938373077466757
 GameObject:
@@ -21510,6 +21511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CorrespondingCollider: {fileID: 6365584452579260684}
   skidMarkPrefab: {fileID: 515823461289605145}
+  smokePrefab: {fileID: 0}
 --- !u!1 &8811717498613018772
 GameObject:
   m_ObjectHideFlags: 0
@@ -21632,6 +21634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CorrespondingCollider: {fileID: 2075706817660144883}
   skidMarkPrefab: {fileID: 7250154501737815720}
+  smokePrefab: {fileID: 0}
 --- !u!1 &9101426264724398639
 GameObject:
   m_ObjectHideFlags: 0

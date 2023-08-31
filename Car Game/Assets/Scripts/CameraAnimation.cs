@@ -18,6 +18,7 @@ public class CameraAnimation : MonoBehaviour
     
     void Start(){
         animator = GetComponent<Animator>();
+        currentCar = GameObject.FindWithTag("Car");
     }
 
     public void ResetValue(){

@@ -37,27 +37,27 @@ public class MenuManager : MonoBehaviour
 
     public void SwitchMenuToSecondMenu(){
         firstMenu.SetActive(false);
-        porsheForMenu.SetActive(false);
+        // porsheForMenu.SetActive(false);
+        //Destroy(porsheForMenu);
         StartAnimation();
         secondMenu.SetActive(true);
     }
 
     public void SwitchMenuToSecondMenuForMultiplayer(){
         firstMenu.SetActive(false);
-        porsheForMenu.SetActive(false);
+        //porsheForMenu.SetActive(false);
         secondMenuForMultiplayer.SetActive(true);
     }
 
     public void returnToMenuFromSecondMenu(){
-        secondMenu.SetActive(false);;
+        secondMenu.SetActive(false);
         StartAnimation();
-        porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
     }
     
     public void returnToMenuFromSecondMenuForMultiplayer(){
-        secondMenuForMultiplayer.SetActive(false);;
-        porsheForMenu.SetActive(true);
+        secondMenuForMultiplayer.SetActive(false);
+        //porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
     }
     

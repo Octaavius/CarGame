@@ -452,6 +452,7 @@ MonoBehaviour:
   - {fileID: 690121849884359126}
   - {fileID: 3212696249375226664}
   - {fileID: 5580928789502464873}
+  steeringAssistant: 0
   gear: 1
   spawnPoint: {fileID: 0}
 --- !u!114 &7407947302240434295

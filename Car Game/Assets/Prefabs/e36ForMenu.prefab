@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 906670241237933209}
   m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
   m_LocalPosition: {x: 0.4900055, y: -0.24599999, z: 0.97}
-  m_LocalScale: {x: -0.25, y: 0.20000003, z: 0.20000002}
+  m_LocalScale: {x: 0.25, y: 0.20000003, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5311889072130180213}
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 5724075130882304351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4900055, y: -0.24200004, z: -0.837}
-  m_LocalScale: {x: -0.25, y: 0.20000003, z: 0.20000002}
+  m_LocalScale: {x: 0.25, y: 0.20000003, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9177844082740573661}
@@ -137,6 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226183726635678398}
+  - component: {fileID: 5589592359419468264}
   m_Layer: 0
   m_Name: e36ForMenu
   m_TagString: Car
@@ -164,6 +165,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5589592359419468264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016247629257695866}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11362a7a962be046957574ed5a77e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressed:
+    m_Name: Pressed
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 8ba9ad91-40c7-480c-80eb-6b58a3b36fb9
+    m_Processors: 
+    m_Interactions: Press
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a475a29c-2900-40c0-a2e2-3a1d2f514126
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pressed
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9808f600-2ed1-4924-b614-428ec3c9a72c
+      m_Path: <Touchscreen>/Press
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pressed
+      m_Flags: 0
+    m_Flags: 0
+  axis:
+    m_Name: Axis
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 21ce3bc0-c006-4323-8231-8a0634d29743
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7994c037-2f4d-49ea-b0b9-0466b78aaaa5
+      m_Path: <Mouse>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Axis
+      m_Flags: 0
+    - m_Name: 
+      m_Id: b682310b-712a-45bf-84a7-49cd88bf84d2
+      m_Path: <Touchscreen>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Axis
+      m_Flags: 0
+    m_Flags: 0
+  speed: 0.1
+  inverted: 0
+  xRotation: 1
+  yRotation: 0
+  xStart: 0
+  xEnd: 1600
+  yStart: 0
+  yEnd: 1080
 --- !u!1001 &11021576973785476
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class CarScript : MonoBehaviour
     
     public GameObject[] wheelMeshes = new GameObject[4];
 
-    public bool steeringAssistant;
+    public bool steeringAssistant = true;
 
     [HideInInspector]
     public int gear = 1;

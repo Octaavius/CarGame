@@ -319,7 +319,7 @@ MonoBehaviour:
   - {fileID: 4537356360489070246}
   - {fileID: 3340557367544901267}
   - {fileID: 4867110110415213394}
-  steeringAssistant: 1
+  steeringAssistant: 0
   gear: 1
 --- !u!1 &5424366242069246853
 GameObject:

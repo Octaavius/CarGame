@@ -60,12 +60,22 @@ public class MenuManager : MonoBehaviour
         porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
     }
+    
     // public void ResetValue(){
     //     animator.ResetTrigger("TrUp");
-    //     Destroy(currentCar);
-    //     currentCar = Instantiate(carList[lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
+    //     if(currentCar){
+    //         Debug.Log(currentCar);
+    //         Destroy(currentCar);
+    //         Debug.Log("destrou car");
+    //     }
+    //     else{
+    //         returnToMenuBool = false;
+    //         Debug.Log(returnToMenuBool);
+    //     }
+    //     if(!returnToMenuBool)
+    //         currentCar = Instantiate(menuScript.carList[menuScript.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
     // }
-
+    
     public void StartAnimation(){
         animator.SetTrigger("TrUp");
     }

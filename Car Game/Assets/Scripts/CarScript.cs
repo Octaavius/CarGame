@@ -27,7 +27,7 @@ public class CarScript : MonoBehaviour
 
     public float HandBrakeForce = 10000f;
     
-    private float verticalInput;
+    public float verticalInput;
     private float horizontalInput;
     protected ButtonHoldChec brake;
     protected ButtonHoldChec handBrake;

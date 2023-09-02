@@ -13,7 +13,7 @@ public class CarEffects : MonoBehaviour
     private void Start()
     {
         skidMarkPrefab.SetActive(false);
-        smokePrefab.Stop();
+        if(smokePrefab) smokePrefab.Stop();
     }
 
     private void Update()
@@ -25,14 +25,14 @@ public class CarEffects : MonoBehaviour
         {
             if(!wasStart){
                 skidMarkPrefab.SetActive(true);
-                smokePrefab.Play();
+                if(smokePrefab) smokePrefab.Play();
                 wasStart = true;
             }
         }
         else if (Mathf.Abs(correspondingGroundHit.sidewaysSlip) <= 0.55f)
         {
             skidMarkPrefab.SetActive(false);
-            smokePrefab.Stop();
+            if(smokePrefab) smokePrefab.Stop();
             wasStart = false;
         }
     }

@@ -977,6 +977,7 @@ MonoBehaviour:
   transmission: 2
   brakeForce: 600
   HandBrakeForce: 10000
+  verticalInput: 0
   wheels:
   - {fileID: 3897363676271535464}
   - {fileID: 5403480537488269613}
@@ -1002,7 +1003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audiosByGears:
-  - {fileID: 8300000, guid: 2a09092f5faf29b4a90d3e76965f2d13, type: 3}
+  - {fileID: 8300000, guid: e9643d8581d235f45a62997cba851988, type: 3}
+  timeForGear: []
 --- !u!82 &127245142105538416
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1014,7 +1016,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

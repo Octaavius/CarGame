@@ -7,13 +7,21 @@ public class EngineSound : MonoBehaviour
     private Rigidbody rb;
     private AudioSource audioSource;
     private CarScript carScript;
-    public AudioClip[] audiosByGears;
-    public float[] timeForGear;
-    private AudioClip curAudio;
+    public AudioClip idleSound;
+    public AudioClip lowOn;
+    public AudioClip lowOff;
+
+    private float topSpeed = 20f;
     
     private bool startNewAudio = true;
-    private float audioLength;
     private float pitch = 1;
+    private int mode = 1;
+
+    public bool isStaed = true;
+    public bool wasStaed = true;
+
+    private float prevStay = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,31 +29,59 @@ public class EngineSound : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();    
         carScript = GetComponent<CarScript>();
-        curAudio = audiosByGears[0];
-        audioSource.clip = curAudio;
-        audioSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float currentSpeed = rb.velocity.magnitude * 3.6f;
-        float topSpeed = 100f;
-        pitch = Mathf.Lerp(0, 1f, currentSpeed / topSpeed);
-        audioSource.pitch = pitch * 0.5f + 0.5f;
-        
+        float currentSpeed = rb.velocity.magnitude * 3.6f; 
+        pitch = Mathf.Lerp(0, 1f, currentSpeed / topSpeed) * 0.5f;
+
+        if(Mathf.Abs(currentSpeed) < 0.1f && !wasStaed){
+            isStaed = true;
+            startNewAudio = true;
+        }
+
+        if(isStaed && startNewAudio){
+            audioSource.clip = idleSound;
+            audioSource.pitch  = 1;
+            audioSource.Play();
+            startNewAudio = false;
+            wasStaed = true;
+        }
+
+        if((prevStay > 0 && carScript.verticalInput <= 0) || (prevStay <= 0 && carScript.verticalInput > 0)){
+            startNewAudio = true;
+        }
+
+        if(carScript.verticalInput > 0){
+            if(wasStaed){
+                startNewAudio = true;
+            }
+            isStaed = false;
+            wasStaed = false;
+            if(startNewAudio){
+                audioSource.clip = lowOn;
+                audioSource.Play();
+                startNewAudio = false;
+            }
+        }
+        else{
+            if(startNewAudio){
+                audioSource.clip = lowOff;
+                audioSource.Play();
+                startNewAudio = false;
+            }
+        }
+        if(!isStaed) audioSource.pitch = pitch + 0.5f;
+        prevStay = carScript.verticalInput;
+    } 
+
+    public void topSpeedUp(){
+        topSpeed += 20f;
     }
 
-    private float pitchCount(float length){
-        if(carScript.gear < 3){
-            audioSource.volume = 0.6f;
-            return pitch = length / 2f ;
-        }
-        else if(carScript.gear < 6){
-            audioSource.volume = 0.8f;
-            return pitch = length /3f;
-        }
-        audioSource.volume = 1;
-        return length / 4f ;
-    } 
+    public void topSpeedDown(){
+        topSpeed -= 20f;
+    }
 }

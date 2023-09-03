@@ -27,6 +27,7 @@ public class CarScript : MonoBehaviour
 
     public float HandBrakeForce = 10000f;
     
+    [HideInInspector]
     public float verticalInput;
     private float horizontalInput;
     protected ButtonHoldChec brake;
@@ -46,6 +47,8 @@ public class CarScript : MonoBehaviour
     private GameObject backLights = null;
     private GameObject stearingWheel = null;
 
+    private EngineSound es;
+
     void Start(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
         // wheels[1] = GameObject.Find("FR").GetComponent<WheelCollider>();
@@ -64,6 +67,8 @@ public class CarScript : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -.4f, 0f);
+
+        es = GetComponent<EngineSound>();
     }
 
     // Update is called once per frame
@@ -186,8 +191,14 @@ public class CarScript : MonoBehaviour
         //Debug.Log(engineRpm);
         if(gear != 6 && gear != 0 && engineRpm > 4400f){
             gear++;
+            if(es){
+                es.topSpeedUp();
+            }
         } else if(gear != 1 && gear != 0 && engineRpm * (gearRatioArray[gear - 1])/ gearRatioArray[gear] < 4200f){
             gear--;
+            if(es){
+                es.topSpeedDown();
+            }
         } else if((gear == 6 || gear == 0) && engineRpm > 6000f){
             engineRpm = 6000f;
         }

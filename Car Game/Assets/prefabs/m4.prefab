@@ -309,6 +309,7 @@ MonoBehaviour:
   transmission: 2
   brakeForce: 600
   HandBrakeForce: 10000
+  verticalInput: 0
   wheels:
   - {fileID: 7856541665897708230}
   - {fileID: 1954489648983776494}
@@ -850,6 +851,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -642844703006978662, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+    - {fileID: 5050422055867433376, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+    - {fileID: 65702495048144492, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}

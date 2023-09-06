@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CarEffects : MonoBehaviour
 {
-    public WheelCollider CorrespondingCollider;
+    private WheelCollider CorrespondingCollider;
     public GameObject skidMarkPrefab;
     public ParticleSystem smokePrefab;
-    public AudioSource audio;
+    private AudioSource audio;
 
     private bool wasStart = false;
 
     private void Start()
     {
+        CorrespondingCollider = GetComponent<WheelCollider>();
+        audio = GetComponent<AudioSource>();
         skidMarkPrefab.SetActive(false);
         if(smokePrefab) smokePrefab.Stop();
     }

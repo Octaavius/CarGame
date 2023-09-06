@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2665,6 +2665,7 @@ MonoBehaviour:
   - {fileID: 3857419150799891190, guid: 67d66e13628ba4745adde0efd4e96832, type: 3}
   - {fileID: 1142582574589499339, guid: 2567c44f99717ec4ebb593137bb15a96, type: 3}
   - {fileID: 998095096501143732, guid: 940cc4431525f0142b5d91ab843d88cb, type: 3}
+  - {fileID: 8129872155628945720, guid: 82c58248d9b3cf04da3e5551fa5c259c, type: 3}
   porsheForMenu: {fileID: 4843920243053861107}
   animator: {fileID: 1623912507}
   spawnPoint: {fileID: 597748257}
@@ -6387,6 +6388,7 @@ MonoBehaviour:
   - {fileID: 5200462671239578038, guid: 69d4291d722ed2f4b819650d548b645b, type: 3}
   - {fileID: 6192589960624524774, guid: 2d5db7129a6e05f488b94b6b05be9b5a, type: 3}
   - {fileID: 3794573971223107253, guid: 28041b52d145620499db383f5df5c33c, type: 3}
+  - {fileID: 8129872155628945720, guid: 0a42f957ff1985e468a981d45db092b2, type: 3}
   lastCarId: 0
 --- !u!4 &1643799250
 Transform:

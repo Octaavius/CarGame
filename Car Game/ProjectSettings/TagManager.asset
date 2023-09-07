@@ -16,6 +16,7 @@ TagManager:
   - backLights
   - stearingWheel
   - gameManager
+  - musicManager
   layers:
   - Default
   - TransparentFX

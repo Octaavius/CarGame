@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 3664066706852162502}
   skidMarkPrefab: {fileID: 4111196603483937978}
   smokePrefab: {fileID: 0}
 --- !u!1 &4010972899683111569
@@ -203,6 +202,7 @@ GameObject:
   - component: {fileID: 3160305431979098601}
   - component: {fileID: 6479798001311324043}
   - component: {fileID: 9197713069394023532}
+  - component: {fileID: 8164486891159753817}
   m_Layer: 0
   m_Name: e36
   m_TagString: Car
@@ -331,6 +331,7 @@ MonoBehaviour:
   transmission: 2
   brakeForce: 600
   HandBrakeForce: 10000
+  verticalInput: 0
   wheels:
   - {fileID: 1362977928047580494}
   - {fileID: 5628708943943296902}
@@ -343,6 +344,20 @@ MonoBehaviour:
   - {fileID: 7440774484405653507}
   steeringAssistant: 1
   gear: 1
+--- !u!114 &8164486891159753817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092021022119377358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4609a68db3467447a3e18deae4f4c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 5390230619418641701}
 --- !u!1 &4111196603483937978
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 8039402305298918867}
   skidMarkPrefab: {fileID: 6537199334960757259}
   smokePrefab: {fileID: 0}
 --- !u!1 &8221860379314779498
@@ -1069,6 +1083,11 @@ PrefabInstance:
 --- !u!4 &4066356695629847985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24702de13aba6604aa2d1a5a0414ad4d, type: 3}
+  m_PrefabInstance: {fileID: 4603840606680201818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5390230619418641701 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8442510506162454399, guid: 24702de13aba6604aa2d1a5a0414ad4d, type: 3}
   m_PrefabInstance: {fileID: 4603840606680201818}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7451191701125310244

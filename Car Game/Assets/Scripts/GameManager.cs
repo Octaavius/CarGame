@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using HSVPicker;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,10 +20,15 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int lastCarId = 0; 
 
+    [HideInInspector]
+    public Color color;
+    private ColorPicker picker;
+
     void Awake(){
         Application.targetFrameRate = 120;
         
         sceneName = SceneManager.GetActiveScene().name;
+
     }
 
     public void ChangeCar(){
@@ -103,5 +109,10 @@ public class GameManager : MonoBehaviour
 
     public void ShowUI(){
         UI.transform.Find("Canvas").gameObject.SetActive(true);
+    }
+
+    public void UpdateColor(){
+        picker = GameObject.FindGameObjectWithTag("ColorPicker").GetComponent<ColorPicker>();
+        color = picker.CurrentColor;
     }
 }

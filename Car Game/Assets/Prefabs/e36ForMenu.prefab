@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226183726635678398}
   - component: {fileID: 5589592359419468264}
+  - component: {fileID: 8780975423512318044}
   m_Layer: 0
   m_Name: e36ForMenu
   m_TagString: Car
@@ -235,6 +236,23 @@ MonoBehaviour:
   xEnd: 1600
   yStart: 0
   yEnd: 1080
+--- !u!114 &8780975423512318044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016247629257695866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cdc4391163a9d4c9a851d6bb237bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 5557094792150570439}
+  picker: {fileID: 0}
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  SetColorOnStart: 0
 --- !u!1001 &11021576973785476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,6 +407,11 @@ PrefabInstance:
 --- !u!4 &4593020344090185043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24702de13aba6604aa2d1a5a0414ad4d, type: 3}
+  m_PrefabInstance: {fileID: 4050731500253883064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5557094792150570439 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8442510506162454399, guid: 24702de13aba6604aa2d1a5a0414ad4d, type: 3}
   m_PrefabInstance: {fileID: 4050731500253883064}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5637705785688728478

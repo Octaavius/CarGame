@@ -17,6 +17,7 @@ TagManager:
   - stearingWheel
   - gameManager
   - musicManager
+  - ColorPicker
   layers:
   - Default
   - TransparentFX

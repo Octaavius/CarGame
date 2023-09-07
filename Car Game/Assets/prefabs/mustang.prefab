@@ -15903,6 +15903,7 @@ GameObject:
   - component: {fileID: 5037957372069116103}
   - component: {fileID: 6296596720708395271}
   - component: {fileID: 2987171524419415409}
+  - component: {fileID: 6296279286237727573}
   m_Layer: 0
   m_Name: mustang
   m_TagString: Car
@@ -16043,6 +16044,7 @@ MonoBehaviour:
   transmission: 2
   brakeForce: 600
   HandBrakeForce: 10000
+  verticalInput: 0
   wheels:
   - {fileID: 7527644254527382630}
   - {fileID: 964579307070427055}
@@ -16055,6 +16057,20 @@ MonoBehaviour:
   - {fileID: 8811717498613018772}
   steeringAssistant: 0
   gear: 1
+--- !u!114 &6296279286237727573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192589960624524774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4609a68db3467447a3e18deae4f4c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 1616707900076898850}
 --- !u!1 &6432938373077466757
 GameObject:
   m_ObjectHideFlags: 0
@@ -21509,7 +21525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 6365584452579260684}
   skidMarkPrefab: {fileID: 515823461289605145}
   smokePrefab: {fileID: 0}
 --- !u!1 &8811717498613018772
@@ -21632,7 +21647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 2075706817660144883}
   skidMarkPrefab: {fileID: 7250154501737815720}
   smokePrefab: {fileID: 0}
 --- !u!1 &9101426264724398639
@@ -22063,6 +22077,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
+--- !u!23 &1616707900076898850 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3056041028626425089, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
+  m_PrefabInstance: {fileID: 4898071022086217949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4932506854500075318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}

@@ -326,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8269221341019531683}
   - component: {fileID: 4860664503936436329}
+  - component: {fileID: 3287957819397941851}
   m_Layer: 0
   m_Name: mustangForMenu
   m_TagString: Car
@@ -423,6 +424,22 @@ MonoBehaviour:
   xEnd: 1600
   yStart: 0
   yEnd: 1080
+--- !u!114 &3287957819397941851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142582574589499339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cdc4391163a9d4c9a851d6bb237bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 7727884912207493795}
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  SetColorOnStart: 1
 --- !u!1 &1460968248609634956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1788,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: stearingWheel
       objectReference: {fileID: 0}
+    - target: {fileID: -7272911518199237601, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3814519991284252978, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1835,5 +1856,10 @@ PrefabInstance:
 --- !u!4 &4117009135897462711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
+  m_PrefabInstance: {fileID: 4514916361344491612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7727884912207493795 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3056041028626425089, guid: ffbef0ce5ab8d6f42aa282990d1fa0ba, type: 3}
   m_PrefabInstance: {fileID: 4514916361344491612}
   m_PrefabAsset: {fileID: 0}

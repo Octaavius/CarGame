@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2849102675763712934}
   - component: {fileID: 2635909564194934440}
+  - component: {fileID: -801409345468375976}
   m_Layer: 0
   m_Name: porshe 911 for menu
   m_TagString: Car
@@ -356,6 +357,25 @@ MonoBehaviour:
   xEnd: 1600
   yStart: 0
   yEnd: 1080
+--- !u!114 &-801409345468375976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998095096501143732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cdc4391163a9d4c9a851d6bb237bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 1491165964623889805}
+  - {fileID: 5320447556579630270}
+  - {fileID: 1538763542071201694}
+  - {fileID: 145846827767716868}
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  SetColorOnStart: 1
 --- !u!1 &1238559758816902539
 GameObject:
   m_ObjectHideFlags: 0

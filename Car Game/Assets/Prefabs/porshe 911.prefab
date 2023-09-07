@@ -867,6 +867,7 @@ GameObject:
   - component: {fileID: 6426372263278759439}
   - component: {fileID: 5909257623676056152}
   - component: {fileID: 127245142105538416}
+  - component: {fileID: 2264304672529746680}
   m_Layer: 0
   m_Name: porshe 911
   m_TagString: Untagged
@@ -1126,6 +1127,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2264304672529746680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794573971223107253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4609a68db3467447a3e18deae4f4c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 8369138688359007708}
+  - {fileID: 5766567360720847654}
+  - {fileID: 2572118643040590574}
+  - {fileID: 3677449302360873739}
 --- !u!1 &3810958570611226362
 GameObject:
   m_ObjectHideFlags: 0
@@ -31639,8 +31657,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
+--- !u!23 &2572118643040590574 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3451952670488711442, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
+  m_PrefabInstance: {fileID: 8334530216707175424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3677449302360873739 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4565841078046068981, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
+  m_PrefabInstance: {fileID: 8334530216707175424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5766567360720847654 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6652725513331149018, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
+  m_PrefabInstance: {fileID: 8334530216707175424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8367840319519740907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
+  m_PrefabInstance: {fileID: 8334530216707175424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8369138688359007708 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 544676453678658012, guid: 5f187c6a76b31c34c83cf365b60dced3, type: 3}
   m_PrefabInstance: {fileID: 8334530216707175424}
   m_PrefabAsset: {fileID: 0}

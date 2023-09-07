@@ -157,7 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 1462166577340548211}
   skidMarkPrefab: {fileID: 1549605164287214598}
   smokePrefab: {fileID: 2078347582717175332}
 --- !u!1 &5200462671239578038
@@ -172,6 +171,7 @@ GameObject:
   - component: {fileID: 2057746300914426039}
   - component: {fileID: 8251577426263227124}
   - component: {fileID: 7176058293450868804}
+  - component: {fileID: 1228347416598760672}
   m_Layer: 0
   m_Name: m4
   m_TagString: Car
@@ -322,6 +322,22 @@ MonoBehaviour:
   - {fileID: 4867110110415213394}
   steeringAssistant: 0
   gear: 1
+--- !u!114 &1228347416598760672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200462671239578038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4609a68db3467447a3e18deae4f4c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer:
+  - {fileID: 8814817305459177456}
+  - {fileID: 4909403814175265849}
+  - {fileID: 7493769689272818806}
 --- !u!1 &5424366242069246853
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9ec338eac59a047819c057360289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorrespondingCollider: {fileID: 7579336617462211456}
   skidMarkPrefab: {fileID: 8517544947417735863}
   smokePrefab: {fileID: 3634226098304163970}
 --- !u!1 &5925298219652719995
@@ -848,6 +863,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: bmw_m4
       objectReference: {fileID: 0}
+    - target: {fileID: 5626531437724839781, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7211448773848044386, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+    - target: {fileID: 8097548996071476396, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7211448773848044386, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -642844703006978662, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
@@ -859,6 +882,21 @@ PrefabInstance:
 --- !u!4 &3732156257831321470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+  m_PrefabInstance: {fileID: 3765555929453697173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4909403814175265849 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8097548996071476396, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+  m_PrefabInstance: {fileID: 3765555929453697173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7493769689272818806 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3188892688128277277, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+  m_PrefabInstance: {fileID: 3765555929453697173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8814817305459177456 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5626531437724839781, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
   m_PrefabInstance: {fileID: 3765555929453697173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5713408808547511811

@@ -188,8 +188,6 @@ MonoBehaviour:
   - {fileID: 6780865971361535355}
   - {fileID: 6948852792367298226}
   - {fileID: 9062644029160070452}
-  Color: {r: 1, g: 0, b: 0, a: 1}
-  SetColorOnStart: 1
 --- !u!1 &6427670437186637895
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +331,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -642844703006978662, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
+    - {fileID: 65702495048144492, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f33d3cfa4e0cb140805868b7f194e1f, type: 3}

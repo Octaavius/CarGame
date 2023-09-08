@@ -77,6 +77,8 @@ public class CarScript : MonoBehaviour
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
         
         TurnUpdate();
+        EngineUpdate();
+        HandBrakeUpdate();  
         if(verticalInput < 0 || brake.buttonPressed){
             BrakeUpdate();
             if(backLights)
@@ -89,10 +91,7 @@ public class CarScript : MonoBehaviour
             if(backLights)
                 backLights.SetActive(false);
         }
-
-        EngineUpdate();
         wheelUpdate();
-        HandBrakeUpdate();  
     }
 
     void wheelUpdate(){

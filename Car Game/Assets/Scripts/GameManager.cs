@@ -20,15 +20,22 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int lastCarId = 0; 
 
-    [HideInInspector]
-    public Color color;
     private ColorPicker picker;
+    [HideInInspector]
+    public Color[] carsColor;
 
     void Awake(){
         Application.targetFrameRate = 120;
         
         sceneName = SceneManager.GetActiveScene().name;
 
+        carsColor = new Color[carList.Length]; 
+    }
+
+    void Start(){
+        for(int i = 0; i < carList.Length; i++){
+            carsColor[i] = carList[i].GetComponent<UpdateColorScript>().renderer[0].sharedMaterial.color;
+        }
     }
 
     public void ChangeCar(){
@@ -37,6 +44,7 @@ public class GameManager : MonoBehaviour
         int carId = (carList.Length == lastCarId + 1) ? lastCarId = 0 : ++lastCarId;
 
         spawnCarFromCarPark(carId);
+
     }
 
     void FixedUpdate(){
@@ -113,6 +121,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateColor(){
         picker = GameObject.FindGameObjectWithTag("ColorPicker").GetComponent<ColorPicker>();
-        color = picker.CurrentColor;
+        carsColor[lastCarId] = picker.CurrentColor;
     }
 }

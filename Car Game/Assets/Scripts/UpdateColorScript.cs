@@ -10,7 +10,7 @@ public class UpdateColorScript : MonoBehaviour
     void Awake(){
         gm = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
         for(int n = 0; n < renderer.Length; n++){
-            renderer[n].material.color = gm.color;
+            renderer[n].material.color = gm.carsColor[gm.lastCarId];
         }
     }
 }

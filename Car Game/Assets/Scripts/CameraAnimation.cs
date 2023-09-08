@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace HSVPickerExamples
+{
 
 public class CameraAnimation : MonoBehaviour
 {
@@ -15,8 +17,11 @@ public class CameraAnimation : MonoBehaviour
     public GameObject spawnPoint;
 
     private bool returnToMenuBool = true;
+
+    private GameManager gm;
     
     void Start(){
+        gm = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
         animator = GetComponent<Animator>();
         currentCar = GameObject.FindWithTag("Car");
     }
@@ -32,8 +37,10 @@ public class CameraAnimation : MonoBehaviour
             returnToMenuBool = false;
             Debug.Log(returnToMenuBool);
         }
-        if(!returnToMenuBool)
+        if(!returnToMenuBool){
             currentCar = Instantiate(menuScript.carList[menuScript.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
+            currentCar.GetComponent<ColorEditor>().changeColor(gm.carsColor[gm.lastCarId]);
+        }
     }
 
     public void returnToMenu(){
@@ -42,4 +49,5 @@ public class CameraAnimation : MonoBehaviour
     // public void StartAnimation(){
     //     animator.SetTrigger("TrUp");
     // }
+}
 }

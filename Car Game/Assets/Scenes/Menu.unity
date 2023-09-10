@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7378,6 +7378,7 @@ MonoBehaviour:
   - First Map
   - Forest Map
   - School Drift
+  - Castle Map
   currentMap: 0
 --- !u!114 &1643799249
 MonoBehaviour:
@@ -7399,7 +7400,7 @@ MonoBehaviour:
   - {fileID: 8129872155628945720, guid: 0a42f957ff1985e468a981d45db092b2, type: 3}
   - {fileID: 4307822140434730048, guid: 36154696c4b7ad64a9ccb6412884e75e, type: 3}
   lastCarId: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
+  carsColor: []
 --- !u!4 &1643799250
 Transform:
   m_ObjectHideFlags: 0

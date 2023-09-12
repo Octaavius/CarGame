@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4207940784618925591}
-  - component: {fileID: 5341991933474345729}
   m_Layer: 0
   m_Name: RR
   m_TagString: Untagged
@@ -33,45 +32,6 @@ Transform:
   m_Father: {fileID: 4813556489807385750}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &5341991933474345729
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096668009016006299}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0.2, z: 0}
-  m_Radius: 0.165
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 1
-  m_SuspensionDistance: 0.1
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 1
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_Enabled: 0
-  m_ProvidesContacts: 0
 --- !u!1 &1776484029916529982
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776484029916529982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.247, z: 0.341}
+  m_LocalPosition: {x: 0, y: -0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -117,7 +77,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7414405282286678222}
-  - component: {fileID: 3829951311691692017}
   m_Layer: 0
   m_Name: RL
   m_TagString: Untagged
@@ -141,45 +100,6 @@ Transform:
   m_Father: {fileID: 4813556489807385750}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &3829951311691692017
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912741320655650113}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0.2, z: 0}
-  m_Radius: 0.165
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 1
-  m_SuspensionDistance: 0.1
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 1
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_Enabled: 0
-  m_ProvidesContacts: 0
 --- !u!1 &5513430911603949784
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +109,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7906033433081916609}
-  - component: {fileID: 8874791851138793691}
   m_Layer: 0
   m_Name: FL
   m_TagString: Untagged
@@ -213,45 +132,6 @@ Transform:
   m_Father: {fileID: 4813556489807385750}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -14.364, z: 0}
---- !u!146 &8874791851138793691
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513430911603949784}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0.2, z: 0}
-  m_Radius: 0.165
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 1
-  m_SuspensionDistance: 0.1
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 1
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_Enabled: 0
-  m_ProvidesContacts: 0
 --- !u!1 &7006869410837632530
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +141,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7483983564109884512}
-  - component: {fileID: 2302499653033021305}
   m_Layer: 0
   m_Name: FR
   m_TagString: Untagged
@@ -285,45 +164,6 @@ Transform:
   m_Father: {fileID: 4813556489807385750}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -14.364, z: 0}
---- !u!146 &2302499653033021305
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7006869410837632530}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0.2, z: 0}
-  m_Radius: 0.165
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 1
-  m_SuspensionDistance: 0.1
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 1
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_Enabled: 0
-  m_ProvidesContacts: 0
 --- !u!1 &8129872155628945720
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,8 +286,6 @@ MonoBehaviour:
   - {fileID: 1514066640017458353}
   - {fileID: 15506193092718917}
   - {fileID: 6457071691374933247}
-  Color: {r: 1, g: 0, b: 0, a: 1}
-  SetColorOnStart: 1
 --- !u!1001 &3642655847533658442
 PrefabInstance:
   m_ObjectHideFlags: 0

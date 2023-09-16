@@ -44,10 +44,15 @@ public class CarScript : MonoBehaviour
     [HideInInspector]
     public int gear = 1;
 
+    [HideInInspector]
+    public float curAngle;
+
     private GameObject backLights = null;
     private GameObject stearingWheel = null;
 
     private EngineSound es;
+
+
 
     void Start(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -125,7 +130,7 @@ public class CarScript : MonoBehaviour
             angle = maxAngle;
         }
 
-        float curAngle = horizontalInput * angle;
+        curAngle = horizontalInput * angle;
         if(stearingWheel){
             stearingWheel.transform.localRotation  = horizontalInput != 0 ? Quaternion.Euler(0, -90, 720f / horizontalInput) : Quaternion.Euler(0, -90, 0);
         }

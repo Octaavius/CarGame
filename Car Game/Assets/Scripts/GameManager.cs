@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public Color[] carsColor;
 
+    public GameObject steeringWheel;
+    public GameObject arrows;
+
+    [HideInInspector]
+    public string controllerType = "arrows";
+
     void Awake(){
         Application.targetFrameRate = 120;
         
@@ -122,5 +128,17 @@ public class GameManager : MonoBehaviour
     public void UpdateColor(){
         picker = GameObject.FindGameObjectWithTag("ColorPicker").GetComponent<ColorPicker>();
         carsColor[lastCarId] = picker.CurrentColor;
+    }
+
+    public void SetArrowsController(){
+        steeringWheel.SetActive(false);
+        arrows.SetActive(true);
+        controllerType = "arrows";
+    }
+
+    public void SetWheelController(){
+        steeringWheel.SetActive(true);
+        arrows.SetActive(false);
+        controllerType = "wheel";
     }
 }

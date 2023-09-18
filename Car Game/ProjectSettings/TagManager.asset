@@ -18,6 +18,9 @@ TagManager:
   - gameManager
   - musicManager
   - ColorPicker
+  - SteeringWheelController
+  - ArrowsController
+  - EventSystem
   layers:
   - Default
   - TransparentFX

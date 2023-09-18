@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     public GameObject firstMenu;
     public GameObject secondMenu;
     public GameObject secondMenuForMultiplayer;
+    public GameObject settings;
+    private GameObject curActivePanel;
     
     [Header("Car selection settings")]
     public GameObject[] carList;
@@ -27,6 +29,10 @@ public class MenuManager : MonoBehaviour
         playButton.onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<SceneManagerScript>().LoadScene());
     }
 
+    public void Start(){
+        curActivePanel = firstMenu;
+    }
+
     public void LoadSingle(){
         SceneManager.LoadScene("FirstMap");
     }
@@ -41,24 +47,28 @@ public class MenuManager : MonoBehaviour
         //Destroy(porsheForMenu);
         StartAnimation();
         secondMenu.SetActive(true);
+        curActivePanel = secondMenu;
     }
 
     public void SwitchMenuToSecondMenuForMultiplayer(){
         firstMenu.SetActive(false);
         //porsheForMenu.SetActive(false);
         secondMenuForMultiplayer.SetActive(true);
+        curActivePanel = secondMenu;
     }
 
     public void returnToMenuFromSecondMenu(){
         secondMenu.SetActive(false);
         StartAnimation();
         firstMenu.SetActive(true);
+        curActivePanel = firstMenu;
     }
     
     public void returnToMenuFromSecondMenuForMultiplayer(){
         secondMenuForMultiplayer.SetActive(false);
         //porsheForMenu.SetActive(true);
         firstMenu.SetActive(true);
+        curActivePanel = firstMenu;
     }
     
     // public void ResetValue(){
@@ -85,4 +95,14 @@ public class MenuManager : MonoBehaviour
     // public void hideCarInMenu(){
     //     carForSecondMenu.SetActive(false);
     // }
+
+    public void openSettings(){
+        settings.SetActive(true);
+        curActivePanel.SetActive(false); 
+    }
+    
+    public void closeSettings(){
+        settings.SetActive(false);
+        curActivePanel.SetActive(true); 
+    }
 }

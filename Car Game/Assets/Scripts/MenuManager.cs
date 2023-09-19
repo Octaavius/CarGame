@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     public GameObject secondMenu;
     public GameObject secondMenuForMultiplayer;
     public GameObject settings;
+    public GameObject selectScenePanel;
     private GameObject curActivePanel;
     
     [Header("Car selection settings")]
@@ -105,4 +106,10 @@ public class MenuManager : MonoBehaviour
         settings.SetActive(false);
         curActivePanel.SetActive(true); 
     }
+
+    public void SelectMapPanel(){
+        curActivePanel.SetActive(false);
+        selectScenePanel.SetActive(true);
+        curActivePanel = selectScenePanel;
+    } 
 }

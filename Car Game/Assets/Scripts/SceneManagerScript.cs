@@ -26,4 +26,8 @@ public class SceneManagerScript : MonoBehaviour
     public void LoadMenu(){
         SceneManager.LoadScene("Menu");
     }
+
+    public void LoadSceneNames(string name){
+        SceneManager.LoadScene(name);
+    }
 }

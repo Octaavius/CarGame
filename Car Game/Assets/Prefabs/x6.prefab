@@ -327,6 +327,7 @@ MonoBehaviour:
   - {fileID: 1211763846972510978}
   steeringAssistant: 1
   gear: 1
+  curAngle: 0
 --- !u!114 &3064523685985599745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer:
-  - {fileID: 0}
+  - {fileID: 5725899856266167630}
 --- !u!1 &5860878561554859557
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +882,11 @@ PrefabInstance:
 --- !u!4 &4447489741511596057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06f490fc91e718c46a54f84a15821be7, type: 3}
+  m_PrefabInstance: {fileID: 4193433059389046770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5725899856266167630 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8449996119470504636, guid: 06f490fc91e718c46a54f84a15821be7, type: 3}
   m_PrefabInstance: {fileID: 4193433059389046770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5789627502228126431

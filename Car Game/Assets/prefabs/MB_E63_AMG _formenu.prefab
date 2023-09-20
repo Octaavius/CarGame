@@ -622,13 +622,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer:
-  - {fileID: 4387112732539306443}
   - {fileID: 680799331254214286}
+  - {fileID: 106809889118729874}
+  - {fileID: 4387112732539306443}
   - {fileID: 343467923831783202}
   - {fileID: 7992173970626641298}
   - {fileID: 4098209088282390304}
   - {fileID: 2733671362034159292}
-  - {fileID: 106809889118729874}
 --- !u!1 &1512532491820169003
 GameObject:
   m_ObjectHideFlags: 0

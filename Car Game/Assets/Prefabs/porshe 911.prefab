@@ -884,7 +884,7 @@ Transform:
   m_GameObject: {fileID: 3794573971223107253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8367840319519740907}
@@ -1014,6 +1014,7 @@ MonoBehaviour:
   - {fileID: 3136025987084157720}
   steeringAssistant: 1
   gear: 1
+  curAngle: 0
 --- !u!114 &5909257623676056152
 MonoBehaviour:
   m_ObjectHideFlags: 0

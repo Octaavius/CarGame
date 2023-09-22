@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 9016247629257695866}
   m_LocalRotation: {x: 0, y: -0.7946661, z: 0, w: 0.60704684}
   m_LocalPosition: {x: -0.02, y: 0.86, z: 1.57}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalScale: {x: 1.6119206, y: 1.611921, z: 1.611921}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4313644025490750119}
@@ -250,9 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 5557094792150570439}
-  picker: {fileID: 0}
-  Color: {r: 1, g: 0, b: 0, a: 1}
-  SetColorOnStart: 0
 --- !u!1001 &11021576973785476
 PrefabInstance:
   m_ObjectHideFlags: 0

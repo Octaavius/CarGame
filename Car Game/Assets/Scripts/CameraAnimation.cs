@@ -38,7 +38,7 @@ public class CameraAnimation : MonoBehaviour
             Debug.Log(returnToMenuBool);
         }
         if(!returnToMenuBool){
-            currentCar = Instantiate(menuScript.carList[menuScript.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
+            currentCar = Instantiate(menuScript.carList[gm.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
             currentCar.GetComponent<ColorEditor>().changeColor(gm.carsColor[gm.lastCarId]);
         }
     }

@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject settings;
     public GameObject selectScenePanel;
     public GameObject carSettings;
+    public GameObject modePanel;
     private GameObject curActivePanel;
     
     [Header("Car selection settings")]
@@ -73,21 +74,7 @@ public class MenuManager : MonoBehaviour
         curActivePanel = firstMenu;
     }
     
-    // public void ResetValue(){
-    //     animator.ResetTrigger("TrUp");
-    //     if(currentCar){
-    //         Debug.Log(currentCar);
-    //         Destroy(currentCar);
-    //         Debug.Log("destrou car");
-    //     }
-    //     else{
-    //         returnToMenuBool = false;
-    //         Debug.Log(returnToMenuBool);
-    //     }
-    //     if(!returnToMenuBool)
-    //         currentCar = Instantiate(menuScript.carList[menuScript.lastCarId], spawnPoint.transform.position, spawnPoint.transform.rotation);
-    // }
-    
+   
     public void StartAnimation(){
         animator.SetTrigger("TrUp");
     }
@@ -123,6 +110,12 @@ public class MenuManager : MonoBehaviour
     public void closeCarSettings(){
         curActivePanel.SetActive(false);
         curActivePanel = secondMenu;
+        curActivePanel.SetActive(true);
+    }
+
+    public void openModePanel(){
+        curActivePanel.SetActive(false);
+        curActivePanel = modePanel;
         curActivePanel.SetActive(true);
     }
 }

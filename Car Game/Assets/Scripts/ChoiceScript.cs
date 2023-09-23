@@ -19,6 +19,11 @@ public class ChoiceScript : MonoBehaviour
         sceneManagerScript = gameManager.GetComponent<SceneManagerScript>();
         gameManagerScript = gameManager.GetComponent<GameManager>();
         menuScript = GameObject.Find("Menu").GetComponent<MenuManager>();
+        UpdateTexts();
+    }
+
+    public void UpdateTexts(){
+        carText.GetComponent<Text>().text = gameManagerScript.carList[gameManagerScript.lastCarId].name;
     }
 
     public void nextCar(){

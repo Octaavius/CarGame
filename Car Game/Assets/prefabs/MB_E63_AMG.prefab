@@ -1760,9 +1760,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 119529653116178569}
-  cs: {fileID: 0}
+  cs: {fileID: 5290043548535600546}
   yRot: -90
-  updateRotation: 1
+  updateRotation: 0
 --- !u!1 &5339620001289172859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,9 +2111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 5435880556272390906}
-  cs: {fileID: 0}
+  cs: {fileID: 5290043548535600546}
   yRot: -90
-  updateRotation: 1
+  updateRotation: 0
 --- !u!1 &6348523478114971530
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using HSVPicker;
 
+public enum GameMode{
+    FreeRide,
+    TimeAtack
+}
+
 public class GameManager : MonoBehaviour
 {
     private GameObject spawnPoint;
@@ -29,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public string controllerType = "arrows";
+
+    [HideInInspector]
+    public GameMode gameMode;
 
     void Awake(){
         Application.targetFrameRate = 120;
@@ -98,6 +106,12 @@ public class GameManager : MonoBehaviour
         Button driveButton = UI.transform.Find("Canvas/GearButtons/DriveButton").GetComponent<Button>();
         driveButton.onClick.AddListener(() => currentCar.GetComponent<CarScript>().TurnOnDrive());
         driveButton.onClick.AddListener(() => followScript.changeModeTo1());
+
+        if(gameMode == GameMode.TimeAtack){
+            StartTime();
+            TimeAtackManager TAM = UI.transform.Find("TimeAtackPanel").GetComponent<TimeAtackManager>();
+            TAM.StartStopwatch();
+        }
     }
 
     public void resetPosition(){
@@ -114,6 +128,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToMenu(){
+        HideTime();
         SceneManager.LoadScene("Menu");
     }
 
@@ -140,5 +155,15 @@ public class GameManager : MonoBehaviour
         steeringWheel.SetActive(true);
         arrows.SetActive(false);
         controllerType = "wheel";
+    }
+
+    private void StartTime(){
+        UI.transform.Find("TimeAtackPanel").gameObject.SetActive(true);
+    }
+
+    public void HideTime(){
+        UI.transform.Find("TimeAtackPanel").gameObject.SetActive(false);
+        TimeAtackManager TAM = UI.transform.Find("TimeAtackPanel").GetComponent<TimeAtackManager>();
+        TAM.ResetStopwatch();
     }
 }

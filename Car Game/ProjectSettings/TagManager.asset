@@ -21,6 +21,9 @@ TagManager:
   - SteeringWheelController
   - ArrowsController
   - EventSystem
+  - TimeAtackPanel
+  - TimeAtackStuff
+  - TimeAtackTrigger
   layers:
   - Default
   - TransparentFX

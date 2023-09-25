@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
         if(gameMode == GameMode.TimeAtack){
             StartTime();
             TimeAtackManager TAM = UI.transform.Find("TimeAtackPanel").GetComponent<TimeAtackManager>();
-            TAM.StartStopwatch();
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TimeAtackManager : MonoBehaviour
 {
     public Text timerText;
+    public int checkerCount = 0;
     private float startTime;
     private bool isRunning = false;
 

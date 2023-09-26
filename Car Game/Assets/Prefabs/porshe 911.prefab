@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 2264304672529746680}
   m_Layer: 0
   m_Name: porshe 911
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

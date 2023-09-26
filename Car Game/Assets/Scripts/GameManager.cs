@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentCar;
     private GameObject carCamera;
     
-    private string sceneName; 
+    public string sceneName; 
     private GameObject UI;
 
     // [HideInInspector]
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void spawnCarFromCarPark(int carId){
-        currentCar = Instantiate(carList[carId], spawnPoint.transform.position, Quaternion.identity);
+        currentCar = Instantiate(carList[carId], spawnPoint.transform.position, spawnPoint.transform.rotation);
         //currentCar.GetComponent<CarScript>().enabled = true;
 
         Follow followScript = carCamera.GetComponent<Follow>();

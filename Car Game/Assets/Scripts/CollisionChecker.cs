@@ -19,7 +19,9 @@ public class CollisionChecker : MonoBehaviour
         }
 
         else if(col.gameObject.tag == "Car" && checkEnd() && !stopWatch){
-            GameObject.FindGameObjectWithTag("TimeAtackPanel").GetComponent<TimeAtackManager>().StartStopwatch();
+            TimeAtackManager timeManager = GameObject.FindGameObjectWithTag("TimeAtackPanel").GetComponent<TimeAtackManager>();
+            timeManager.StartStopwatch();
+            timeManager.endPanelOpne();
             stopWatch = true;
         }
     }

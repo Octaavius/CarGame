@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeAtackManager : MonoBehaviour
 {
     public Text timerText;
+    public Text endTimerText;
     public int checkerCount = 0;
     private float startTime;
     private bool isRunning = false;
+
+    public GameObject endPanel;
 
     void Start()
     {
@@ -44,5 +48,25 @@ public class TimeAtackManager : MonoBehaviour
         isRunning = false;
         timerText.text = "0:00.00";
     }
+
+    public void endPanelOpne(){
+        endPanel.SetActive(true);
+        endTimerText.text = "Your time: " + timerText.text;
+    }
+
+    public void RestartRace(){
+        ResetStopwatch();
+        endPanel.SetActive(false);
+        GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().sceneName = "lol";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToMenu(){
+        ResetStopwatch();
+        endPanel.SetActive(false);
+        GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().HideUI();
+        GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().GoToMenu();
+    }
+
 }
 

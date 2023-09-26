@@ -39823,7 +39823,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1e52bc8b85cebd94ca04cbbff36c3813, type: 2}
     - target: {fileID: 5233112405309087440, guid: cdc6da115ba8b0f468bc41a737815af0, type: 3}
       propertyPath: m_TagString
-      value: stearingWheel
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: cdc6da115ba8b0f468bc41a737815af0, type: 3}
       propertyPath: m_Materials.Array.data[0]

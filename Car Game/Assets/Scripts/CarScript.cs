@@ -194,16 +194,23 @@ public class CarScript : MonoBehaviour
     void checkGear(){
         //Debug.Log(engineRpm);
         if(gear != 6 && gear != 0 && engineRpm > 4400f){
+            Debug.Log("gearUp");
+            Debug.Log(engineRpm);
+            Debug.Log(engineRpm * (gearRatioArray[gear + 1]) / gearRatioArray[gear]);
             gear++;
             if(es){
                 es.topSpeedUp();
             }
         } else if(gear != 1 && gear != 0 && engineRpm * (gearRatioArray[gear - 1])/ gearRatioArray[gear] < 4200f){
+            Debug.Log("gearDown");
+            Debug.Log(engineRpm);
+            Debug.Log(engineRpm * (gearRatioArray[gear - 1]) / gearRatioArray[gear]);
             gear--;
+
             if(es){
                 es.topSpeedDown();
             }
-        } else if((gear == 6 || gear == 0) && engineRpm > 6000f){
+        } else if(engineRpm > 6000f){
             engineRpm = 6000f;
         }
     }

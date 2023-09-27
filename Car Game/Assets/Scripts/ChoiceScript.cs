@@ -20,6 +20,9 @@ public class ChoiceScript : MonoBehaviour
         gameManagerScript = gameManager.GetComponent<GameManager>();
         menuScript = GameObject.Find("Menu").GetComponent<MenuManager>();
         UpdateTexts();
+
+        sceneManagerScript.currentMap = 0;
+        gameManagerScript.lastCarId = 0;
     }
 
     public void UpdateTexts(){

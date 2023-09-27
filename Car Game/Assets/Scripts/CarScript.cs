@@ -244,4 +244,8 @@ public class CarScript : MonoBehaviour
         float driftValue = Vector3.Dot(rb.velocity, transform.forward);
         float driftAngle = Mathf.Acos(driftValue) * Mathf.Rad2Deg;
     } 
+
+    private void OnTriggerEnter(Collider col){
+        col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
+    }
 }

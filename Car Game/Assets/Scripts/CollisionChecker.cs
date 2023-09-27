@@ -9,8 +9,9 @@ public class CollisionChecker : MonoBehaviour
     public bool wasTrigger = false;
     private bool stopWatch = false; 
 
-    void OnCollisionEnter(Collision col){
-        if(col.gameObject.tag == "Car" && !wasTrigger){
+    public void collider(GameObject col){
+        if(col.tag == "Car" && !wasTrigger){
+            
             if(firstTrigger && !wasTrigger){
                 GameObject.FindGameObjectWithTag("TimeAtackPanel").GetComponent<TimeAtackManager>().StartStopwatch();
             }

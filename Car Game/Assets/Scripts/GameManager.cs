@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameMode gameMode;
 
+    public float soundEffects = 0.5f;
+
     void Awake(){
         Application.targetFrameRate = 120;
         

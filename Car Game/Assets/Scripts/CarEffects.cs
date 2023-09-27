@@ -17,6 +17,7 @@ public class CarEffects : MonoBehaviour
         audio = GetComponent<AudioSource>();
         skidMarkPrefab.SetActive(false);
         if(smokePrefab) smokePrefab.Stop();
+        audio.volume = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().soundEffects;
     }
 
     private void Update()

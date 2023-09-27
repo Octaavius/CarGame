@@ -29,6 +29,7 @@ public class EngineSound : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();    
         carScript = GetComponent<CarScript>();
+        audioSource.volume = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().soundEffects;
     }
 
     // Update is called once per frame

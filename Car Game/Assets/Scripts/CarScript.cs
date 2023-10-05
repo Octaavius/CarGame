@@ -253,6 +253,16 @@ public class CarScript : MonoBehaviour
     } 
 
     private void OnTriggerEnter(Collider col){
+<<<<<<< Updated upstream
         col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
+=======
+        if(!AI) col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
+    }
+
+    public void SetInputs(float horizontal, float vertical, int gearInput){
+        horizontalInput = horizontal;
+        verticalInput = vertical;
+        if((gearInput == 0 && gear > 0) || (gearInput == 1 && gear == 0)) gear = gearInput;
+>>>>>>> Stashed changes
     }
 }

@@ -13,8 +13,9 @@ public enum GameMode{
 public class GameManager : MonoBehaviour
 {
     private GameObject spawnPoint;
-    
-    private GameObject currentCar;
+
+    [HideInInspector]
+    public GameObject currentCar;
     private GameObject carCamera;
     
     public string sceneName; 

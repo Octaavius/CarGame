@@ -22,7 +22,6 @@ public class ChoiceScript : MonoBehaviour
         UpdateTexts();
 
         sceneManagerScript.currentMap = 0;
-        gameManagerScript.lastCarId = 0;
     }
 
     public void UpdateTexts(){

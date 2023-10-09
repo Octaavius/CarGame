@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class CarScript : MonoBehaviour
 {
@@ -53,8 +54,6 @@ public class CarScript : MonoBehaviour
     private EngineSound es;
 
     public bool AI = false;
-
-
 
     void Start(){
         // wheels[0] = GameObject.Find("FL").GetComponent<WheelCollider>();
@@ -229,10 +228,14 @@ public class CarScript : MonoBehaviour
         if(brakeInput){
             for(int i = 2; i < 4; ++i){
                 wheels[i].brakeTorque = HandBrakeForce;
+                WheelFrictionCurve sFriction = wheels[i].sidewaysFriction;
+                sFriction.stiffness = 0.5f;
             }    
         } else {
             for(int i = 2; i < 4; ++i){
                 wheels[i].brakeTorque = 0;
+                WheelFrictionCurve sFriction = wheels[i].sidewaysFriction;
+                sFriction.stiffness = 1f;
             }
         }
     }
@@ -249,7 +252,7 @@ public class CarScript : MonoBehaviour
         gear = 1;
     }
 
-    public void DriftUpdate(){
+    public void DriftAssistant(){
         float driftValue = Vector3.Dot(rb.velocity, transform.forward);
         float driftAngle = Mathf.Acos(driftValue) * Mathf.Rad2Deg;
     } 

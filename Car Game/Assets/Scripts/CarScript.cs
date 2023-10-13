@@ -82,7 +82,9 @@ public class CarScript : MonoBehaviour
         float verticalModifier = GameObject.FindGameObjectWithTag("GasButton").GetComponent<GasButton>().verticalModifier;
         verticalInput = /*SimpleInput.GetAxis("Vertical") * */verticalModifier;
 #if UNITY_EDITOR
-        verticalInput = Math.Max(SimpleInput.GetAxis("Vertical"), verticalModifier);
+        if(SimpleInput.GetAxis("Vertical") < 0)
+            verticalInput = SimpleInput.GetAxis("Vertical");
+        else verticalInput = Math.Max(SimpleInput.GetAxis("Vertical"), verticalModifier);
 #endif
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
 

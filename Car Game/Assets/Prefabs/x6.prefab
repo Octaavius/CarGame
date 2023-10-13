@@ -10317,6 +10317,7 @@ MonoBehaviour:
   steeringAssistant: 1
   gear: 1
   curAngle: 0
+  AI: 0
 --- !u!114 &3064523685985599745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10491,7 +10492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5860878561554859557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.45, z: 6}
+  m_LocalPosition: {x: 0, y: 1.47, z: 5.75}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10522,7 +10523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866758229575898381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -6}
+  m_LocalPosition: {x: 0, y: 1.43, z: -5.76}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []

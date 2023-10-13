@@ -15,7 +15,7 @@ public class EngineSound : MonoBehaviour
     
     private bool startNewAudio = true;
     private float pitch = 1;
-    private int mode = 1;
+    //private int mode = 1;
 
     public bool isStaed = true;
     public bool wasStaed = true;

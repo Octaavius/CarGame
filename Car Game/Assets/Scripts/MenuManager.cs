@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     public GameObject porsheForMenu;
     public Animator animator;
     public GameObject spawnPoint;
-    private GameObject currentCar = null;
+    //private GameObject currentCar = null;
     
     [HideInInspector]
     public int lastCarId = 0;

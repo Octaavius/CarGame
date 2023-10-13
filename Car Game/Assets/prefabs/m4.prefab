@@ -53,9 +53,9 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 2
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1
@@ -427,7 +427,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  enginePower: 4
+  enginePower: 8
   maxAngle: 30
   transmission: 2
   brakeForce: 600
@@ -875,9 +875,9 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 2
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1

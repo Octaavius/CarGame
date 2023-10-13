@@ -79,9 +79,13 @@ public class CarScript : MonoBehaviour
 
     // Update is called once per frame
     protected void Update(){
-        verticalInput = SimpleInput.GetAxis("Vertical");
+        float verticalModifier = GameObject.FindGameObjectWithTag("GasButton").GetComponent<GasButton>().verticalModifier;
+        verticalInput = /*SimpleInput.GetAxis("Vertical") * */verticalModifier;
+#if UNITY_EDITOR
+        verticalInput = Math.Max(SimpleInput.GetAxis("Vertical"), verticalModifier);
+#endif
         horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
-        
+
         TurnUpdate();
         EngineUpdate();
         HandBrakeUpdate();  
@@ -150,7 +154,6 @@ public class CarScript : MonoBehaviour
         float gearRatio = gearRatioArray[gear];
         
         engineRpm = wheels[0].rpm * gearRatio * multiplier * 0.15f;
-        //Debug.Log(gear);
 
         if(engineRpm < 0){
             engineRpm *= -1;
@@ -165,6 +168,7 @@ public class CarScript : MonoBehaviour
         if(verticalInput < 0) return;
 
         float curMotorTorque = verticalInput * (engineRpmToTorque.Evaluate(engineRpm) * enginePower / 10f) * gearRatio * 3.42f * 0.7f;
+        Debug.Log(curMotorTorque);
 
         if(gear == 0){
             curMotorTorque *= -1;
@@ -195,17 +199,17 @@ public class CarScript : MonoBehaviour
     void checkGear(){
         //Debug.Log(engineRpm);
         if(gear != 6 && gear != 0 && engineRpm > 4400f){
-            Debug.Log("gearUp");
-            Debug.Log(engineRpm);
-            Debug.Log(engineRpm * (gearRatioArray[gear + 1]) / gearRatioArray[gear]);
+            //Debug.Log("gearUp");
+            //Debug.Log(engineRpm);
+            //Debug.Log(engineRpm * (gearRatioArray[gear + 1]) / gearRatioArray[gear]);
             gear++;
             if(es){
                 es.topSpeedUp();
             }
         } else if(gear != 1 && gear != 0 && engineRpm * (gearRatioArray[gear - 1])/ gearRatioArray[gear] < 4200f){
-            Debug.Log("gearDown");
-            Debug.Log(engineRpm);
-            Debug.Log(engineRpm * (gearRatioArray[gear - 1]) / gearRatioArray[gear]);
+            //Debug.Log("gearDown");
+            //Debug.Log(engineRpm);
+            //Debug.Log(engineRpm * (gearRatioArray[gear - 1]) / gearRatioArray[gear]);
             gear--;
 
             if(es){
@@ -230,12 +234,14 @@ public class CarScript : MonoBehaviour
                 wheels[i].brakeTorque = HandBrakeForce;
                 WheelFrictionCurve sFriction = wheels[i].sidewaysFriction;
                 sFriction.stiffness = 0.5f;
+                wheels[i].sidewaysFriction = sFriction;
             }    
         } else {
             for(int i = 2; i < 4; ++i){
                 wheels[i].brakeTorque = 0;
                 WheelFrictionCurve sFriction = wheels[i].sidewaysFriction;
                 sFriction.stiffness = 1f;
+                wheels[i].sidewaysFriction = sFriction;
             }
         }
     }

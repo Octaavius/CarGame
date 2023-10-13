@@ -24,6 +24,7 @@ TagManager:
   - TimeAtackPanel
   - TimeAtackStuff
   - TimeAtackTrigger
+  - GasButton
   layers:
   - Default
   - TransparentFX

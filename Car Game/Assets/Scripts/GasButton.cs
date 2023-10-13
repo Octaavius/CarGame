@@ -13,7 +13,7 @@ public class GasButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool isPressed = false;
     private float lowerBorder;
     private float height;
-    //[HideInInspector]
+    [HideInInspector]
     public float verticalModifier;
 
     void Start()

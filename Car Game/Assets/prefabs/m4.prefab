@@ -53,15 +53,15 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 2
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.1
+    m_ExtremumValue: 0.5
+    m_AsymptoteSlip: 1.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -132,10 +132,10 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.1
+    m_ExtremumValue: 0.5
+    m_AsymptoteSlip: 1.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5140403180200028909}
   - component: {fileID: 2057746300914426039}
+  - component: {fileID: 1390637202976021575}
   - component: {fileID: 8251577426263227124}
   - component: {fileID: 7176058293450868804}
   - component: {fileID: 1228347416598760672}
@@ -320,7 +321,30 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2219086, y: 0.841362, z: 3.1781604}
+  m_Size: {x: 1.2219086, y: 0.16, z: 1.52}
+  m_Center: {x: 0, y: -0.34, z: 0}
+--- !u!136 &1390637202976021575
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200462671239578038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.42
+  m_Height: 3.18
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8251577426263227124
 Rigidbody:
@@ -403,7 +427,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  enginePower: 4
+  enginePower: 8
   maxAngle: 30
   transmission: 2
   brakeForce: 600
@@ -422,6 +446,7 @@ MonoBehaviour:
   steeringAssistant: 0
   gear: 1
   curAngle: 0
+  AI: 0
 --- !u!114 &1228347416598760672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,10 +636,10 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.1
+    m_ExtremumValue: 0.5
+    m_AsymptoteSlip: 1.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -850,15 +875,15 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 2
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.1
+    m_ExtremumValue: 0.5
+    m_AsymptoteSlip: 1.5
+    m_AsymptoteValue: 2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2

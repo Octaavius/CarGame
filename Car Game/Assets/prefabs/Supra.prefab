@@ -14654,8 +14654,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3777688441697237465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.986, z: 1.5419922}
-  m_LocalScale: {x: 0.84999996, y: 0.84999996, z: 0.84999996}
+  m_LocalPosition: {x: 0, y: 1.02, z: 2.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3078629711164788880}
@@ -29353,8 +29353,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7144063774489132842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.798, z: -1.983}
-  m_LocalScale: {x: 0.84999996, y: 0.84999996, z: 0.84999996}
+  m_LocalPosition: {x: 0, y: 1, z: -2.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3078629711164788880}
@@ -39404,6 +39404,7 @@ MonoBehaviour:
   steeringAssistant: 0
   gear: 1
   curAngle: 0
+  AI: 0
 --- !u!82 &4339917777091487029
 AudioSource:
   m_ObjectHideFlags: 0

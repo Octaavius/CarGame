@@ -19,18 +19,4 @@ public class driftAssistant : MonoBehaviour
         frwSlip.text = Mathf.Abs(correspondingGroundHit.forwardSlip).ToString();
         sidewaySlip.text = Mathf.Abs(correspondingGroundHit.sidewaysSlip).ToString();
     }
-    /*void showForwardSlip()
-    {
-        WheelHit correspondingGroundHit;
-        carScript.wheels[0].GetGroundHit(out correspondingGroundHit);
-
-        sidewaySlip.text = Mathf.Abs(correspondingGroundHit.forwardSlip).ToString();
-    }
-    void showSidewaySlip()
-    {
-        WheelHit correspondingGroundHit;
-        carScript.wheels[0].GetGroundHit(out correspondingGroundHit);
-
-        sidewaySlip.text = Mathf.Abs(correspondingGroundHit.sidewaysSlip).ToString();
-    }*/
 }

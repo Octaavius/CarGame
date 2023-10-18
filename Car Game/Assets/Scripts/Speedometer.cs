@@ -27,7 +27,7 @@ public class Speedometer : MonoBehaviour
     private void Update(){
         needle.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
         if(car)
-            speed.GetComponent<Text>().text = ((int)(Vector3.Magnitude(car.GetComponent<Rigidbody>().velocity)*3*1.6)).ToString(); 
+            speed.GetComponent<Text>().text = ((int)(Vector3.Magnitude(car.GetComponent<Rigidbody>().velocity)*7.5)).ToString(); 
     }
 
     private float GetSpeedRotation(){

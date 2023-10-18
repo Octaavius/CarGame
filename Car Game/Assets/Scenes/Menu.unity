@@ -7195,7 +7195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892430953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7965e84037215347af5de350e81513c, type: 3}
   m_Name: 
@@ -11895,9 +11895,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1554790434}
   - component: {fileID: 1554790435}
+  - component: {fileID: 1554790436}
   m_Layer: 5
   m_Name: Drive
-  m_TagString: Untagged
+  m_TagString: GasButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11920,8 +11921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 770.00006, y: 310}
-  m_SizeDelta: {x: 100, y: 80}
+  m_AnchoredPosition: {x: 770.00006, y: 260}
+  m_SizeDelta: {x: 100, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554790435
 MonoBehaviour:
@@ -11930,7 +11931,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554790433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a70dc776bc37f748a08a41f672a58e6, type: 3}
   m_Name: 
@@ -11943,6 +11944,19 @@ MonoBehaviour:
     value: 0
   valueMultiplier: 1
   deadzoneRadius: 0
+--- !u!114 &1554790436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554790433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3382d022c99cf4c828c8cfa5988104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalModifier: 0
 --- !u!1 &1570235161
 GameObject:
   m_ObjectHideFlags: 0
@@ -12045,19 +12059,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586786832}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0039505623, w: 0.99999225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554790434}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.65405273, y: -58.3}
-  m_SizeDelta: {x: 250, y: 175}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -50, y: -45}
+  m_SizeDelta: {x: 250, y: 165.2}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1586786834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16105,7 +16119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1
+  m_AspectRatio: 1.3888888
 --- !u!114 &114456988389120279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16169,7 +16183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1
+  m_AspectRatio: 1.3888888
 --- !u!114 &114791393581432543
 MonoBehaviour:
   m_ObjectHideFlags: 0

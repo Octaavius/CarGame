@@ -80,8 +80,10 @@ public class CarScript : MonoBehaviour
 
     // Update is called once per frame
     protected void Update(){
-        verticalInput = SimpleInput.GetAxis("Vertical");
-        horizontalInput = SimpleInput.GetAxis("Horizontal"); //Input.GetAxis("Horizontal");
+        if(!AI){
+            verticalInput = SimpleInput.GetAxis("Vertical");
+            horizontalInput = SimpleInput.GetAxis("Horizontal"); 
+        }//Input.GetAxis("Horizontal");
         
         TurnUpdate();
         EngineUpdate();
@@ -116,9 +118,8 @@ public class CarScript : MonoBehaviour
     }
 
     void TurnUpdate(){
-        float speed = Vector3.Magnitude(rb.velocity) * 3 * 1.6f;
-        
         if(steeringAssistant){
+            float speed = Vector3.Magnitude(rb.velocity) * 3 * 1.6f;
             if (speed < 20) {
                 angle = maxAngle;
             } else if (speed < 40){
@@ -255,7 +256,7 @@ public class CarScript : MonoBehaviour
     } 
 
     private void OnTriggerEnter(Collider col){
-        col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
+        //col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
         if(!AI) col.gameObject.GetComponent<CollisionChecker>().collider(gameObject);
     }
 

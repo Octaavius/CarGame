@@ -24,6 +24,8 @@ TagManager:
   - TimeAtackPanel
   - TimeAtackStuff
   - TimeAtackTrigger
+  - CheckPoint
+  - Walls
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ using Unity.MLAgents.Sensors;
 
 public class MoveToGoalAgent : Agent{
 
-    public Transform targetTransform;
+    public CheckPoints checkPoints;
 
     private float horizontalInput = 0f;
     private float verticalInput = 0f;
@@ -16,6 +16,7 @@ public class MoveToGoalAgent : Agent{
     public override void OnEpisodeBegin(){
         transform.localPosition = Vector3.zero;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public override void OnActionReceived(ActionBuffers actions){
@@ -27,16 +28,21 @@ public class MoveToGoalAgent : Agent{
     }
 
     public override void CollectObservations(VectorSensor sensor){
-        sensor.AddObservation(transform.localPosition);
-        sensor.AddObservation(targetTransform.localPosition);
-        sensor.AddObservation(transform.localRotation);
+        Vector3 checkForard = checkPoints.GetNextCheckpoint().forward;
+        float directionDot = Vector3.Dot(transform.forward, checkForard);
+        sensor.AddObservation(directionDot);
     } 
     
     private void OnTriggerEnter(Collider other){
-        if(other.tag == "Finish") SetReward(1f);  //AddReward
-        else SetReward(-1f);
-        EndEpisode();
+        if(other.transform == checkPoints.GetNextCheckpoint()){
+            AddReward(1f);
+            other.gameObject.SetActive(false);
+            checkPoints.increaseId();
+        }
+        else{
+            AddReward(-1f);
+            EndEpisode();
+            checkPoints.ResetCheckPoints();
+        }
     }
-
-    
 }

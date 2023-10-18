@@ -1,4 +1,26 @@
 {
+    "MoveToGoalAgent": {
+        "checkpoints": [
+            {
+                "steps": 20181,
+                "file_path": "results\\ppo\\MoveToGoalAgent\\MoveToGoalAgent-20181.onnx",
+                "reward": -0.6666666666666666,
+                "creation_time": 1696949805.7840052,
+                "auxillary_file_paths": [
+                    "results\\ppo\\MoveToGoalAgent\\MoveToGoalAgent-20181.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 20181,
+            "file_path": "results\\ppo\\MoveToGoalAgent.onnx",
+            "reward": -0.6666666666666666,
+            "creation_time": 1696949805.7840052,
+            "auxillary_file_paths": [
+                "results\\ppo\\MoveToGoalAgent\\MoveToGoalAgent-20181.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",
